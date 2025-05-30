@@ -1,14 +1,27 @@
-import { useState } from 'react'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './componentes/Navbar';
+
+import Home from './pages/home/Home';
+import Experiencias from './pages/experiencias/Experiencias';
+import Buscador from './pages/buscador/Buscador';
+import Comunidad from './pages/comunidad/Comunidad';
+import Contacto from './pages/contacto/Contacto';
+import Admin from './pages/admin/Admin';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>Flimily</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/experiencias" element={<Experiencias />} />
+        <Route path="/buscador" element={<Buscador />} />
+        <Route path="/comunidad" element={<Comunidad />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
