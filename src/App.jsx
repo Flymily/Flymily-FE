@@ -3,7 +3,7 @@ import Navbar from './components/navbar/Navbar';
 
 
 import Home from './pages/home/Home';
-import Experiencias from './pages/experiencias/Experiencias';
+import Viajes from './pages/viajes/Viajes';
 import Buscador from './pages/buscador/Buscador';
 import Comunidad from './pages/comunidad/Comunidad';
 import Contacto from './pages/contacto/Contacto';
@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/experiencias" element={<Experiencias />} />
+        <Route path="/viajes" element={<Viajes />} />
         <Route path="/buscador" element={<Buscador />} />
         <Route path="/comunidad" element={<Comunidad />} />
         <Route path="/contacto" element={<Contacto />} />

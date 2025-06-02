@@ -50,7 +50,9 @@ const Home = () => {
         {slides.map((slide, index) => (
           <div key={index} className={styles.slide}>
           <img src={slide.img} alt={`Imagen ${index + 1}`} className={styles.slideImg} />
-          <h2 className={styles.centeredText}>{slide.text}</h2>
+          <div className={styles.textBackdrop}>
+            <h2 className={styles.centeredText}>{slide.text}</h2>
+          </div>
         </div>
         ))}
       </Slider>

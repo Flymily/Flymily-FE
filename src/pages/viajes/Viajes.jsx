@@ -1,5 +1,5 @@
 const Experiencias = () => {
-    return <h1>Experiencias </h1>;
+    return <h1>Viajes</h1>;
   };
   
   export default Experiencias;
