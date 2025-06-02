@@ -9,6 +9,7 @@ import Comunidad from './pages/comunidad/Comunidad';
 import Contacto from './pages/contacto/Contacto';
 import Admin from './pages/admin/Admin';
 
+
 function App() {
   return (
     <>

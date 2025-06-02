@@ -1,11 +1,25 @@
-:root {
-  color: rgba(255, 255, 255, 0.87);
-  
-}
-body {
-  background-color: white;
-  color: #333;
-  font-family: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  color: #000;
+}
+
+
+.slick-dots li button:before {
+  color: white;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #fff;
 }
