@@ -30,6 +30,7 @@ const Navbar = () => {
       ☰
     </button>
 
+      
       {menuOpen && (
         <nav className={styles.megamenu}>
           <button
