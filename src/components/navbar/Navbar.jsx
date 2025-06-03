@@ -28,7 +28,7 @@ const Navbar = () => {
         ☰
       </button>
 
-      {/* formato móvil */}
+      
       {menuOpen && (
         <nav className={styles.megamenu}>
           <button className={styles.closeBtn} onClick={() => setMenuOpen(false)}>✖</button>
