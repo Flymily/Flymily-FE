@@ -1,3 +1,6 @@
+
+<img width="1455" alt="marca" src="https://github.com/user-attachments/assets/marca.png" />
+
 # ✈️ Flymily
 
 **Flymily** es una plataforma web pensada para familias aventureras. Explora, planifica y comparte experiencias únicas de viaje en familia.
