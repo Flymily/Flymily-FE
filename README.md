@@ -4,9 +4,9 @@
 
 # ✈️ Flymily
 
-**Flymily** es una plataforma web pensada para familias aventureras. Explora, planifica y comparte experiencias únicas de viaje en familia.
+Flymily: Viajar en familia, más fácil que nunca, es una plataforma web pensada para familias aventureras.
+Flymily es el primer buscador de viajes pensado exclusivamente para familias. Nace con un propósito claro: hacerte la vida más fácil. Organizar unas vacaciones familiares puede ser un reto: falta de tiempo, demasiadas opciones y dificultad para encontrar planes que encajen con toda la familia. Flymily busca por ti, tú eliges y… ¡a disfrutar del viaje!
 
-![Flymily Banner](./src/assets/logo.png)
 
 ---
 
