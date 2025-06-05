@@ -23,7 +23,7 @@ const Buscador = () => {
             value={tipoViaje}
             onChange={e => setTipoViaje(e.target.value)}
           >
-            <option value="">Tipo de tipo Viaje</option>
+            <option value="">Tipo de Viaje</option>
             <option value="safari">Safari</option>
             <option value="nieve">Nieve</option>
             <option value="montania">Montaña</option>
