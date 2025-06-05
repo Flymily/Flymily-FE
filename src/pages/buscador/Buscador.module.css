@@ -155,6 +155,23 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
   
 }
+.botonBuscar {
+    background-color: #4caf8e;
+    color: white;
+    border: none;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: 'Montserrat Alternates', sans-serif;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    margin-top: 1.5rem;
+  }
+  
+  .botonBuscar:hover {
+    background-color: #3b8b74;
+  }
   
 @media (max-width: 768px) {
     .filaPrincipal,
