@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,15 +12,15 @@ const Home = () => {
     autoplaySpeed: 9000,
     dots: true,
     infinite: true,
-    arrows: false,
+    arrows: true,
     pauseOnHover: false,
   };
 
   return (
-    <div className={styles.sliderContainer}>
+    <div className={styles.sliderContainer} data-testid="slider-container">
       <Slider {...settings}>
         {sliderData.map((slide, index) => (
-          <div key={index} className={styles.slide}>
+          <div key={index} className={styles.slide} data-testid={`slide-${index}`}>
           <img 
             src={slide.img} 
             alt={`Imagen ${index + 1}`} 
