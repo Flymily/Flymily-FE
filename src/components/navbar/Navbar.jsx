@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/images/logo.png';
 import { VscAccount } from "react-icons/vsc";
 
 const Navbar = () => {
@@ -24,17 +24,23 @@ const Navbar = () => {
       </nav>
 
       
-      <button className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
-        ☰
-      </button>
+          <button
+      className={styles.hamburger}onClick={() => setMenuOpen(!menuOpen)}aria-label="Abrir menú"
+        >
+      ☰
+    </button>
 
       {menuOpen && (
         <nav className={styles.megamenu}>
-          <button className={styles.closeBtn} onClick={() => setMenuOpen(false)}>✖</button>
+          <button
+      className={styles.closeBtn}onClick={() => setMenuOpen(false)}aria-label="Cerrar menú"
+      >
+      ✖
+    </button>
           <ul className={styles.linkList}>
             <li><Link to="/viajes" onClick={() => setMenuOpen(false)}>Viajes</Link></li>
             <li><Link to="/buscador" onClick={() => setMenuOpen(false)}>Buscador</Link></li>
-            <li><Link to="/comunidad" onClick={() => setMenuOpen(false)}>Comunidad</Link></li>
+            <li><Link to="/comunidad" onClick={() => setMenuOpen(false)}>Nuestra comunidad</Link></li>
             <li><Link to="/contacto" onClick={() => setMenuOpen(false)}>Contacto</Link></li>
             <li><Link to="/login" onClick={() => setMenuOpen(false)}>Iniciar sesión</Link></li>
           </ul>
