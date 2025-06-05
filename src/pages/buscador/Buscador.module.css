@@ -83,7 +83,7 @@
 .edadesWrapper label {
     font-weight: 400;
     font-size: 1rem;
-    color: #333;
+    color: #1d3b2a;
     font-family: 'Montserrat Alternates', sans-serif;
   
 }
@@ -162,6 +162,8 @@ input[type="number"]::-webkit-outer-spin-button {
     .personasEdad {
       flex-direction: column;
       align-items: stretch;
+      align-items: center;
+
     }
   
     .filaPrincipal select,
