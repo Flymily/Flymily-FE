@@ -16,7 +16,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(13, 86, 2, 0.3);
   padding: 1rem 2rem;
   border-radius: 12px;
   max-width: 80%;

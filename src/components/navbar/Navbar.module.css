@@ -21,7 +21,7 @@
 
 .navLinks a {
   text-decoration: none;
-  color: #000;
+  color: #1d3b2a;
   font-weight: 500;
 }
 
@@ -74,9 +74,20 @@
 }
 
 .linkList a {
+  color: #123c2c;
   text-decoration: none;
-  font-size: 1.2rem;
-  color: #333;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.linkList a:hover,
+.linkList a:focus {
+  color: #1d5c45;
+  background-color: #f7efe6; 
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;      
+  border-radius: 1rem;
+  outline: none;            
 }
 
 .closeBtn {
@@ -86,6 +97,7 @@
   align-self: flex-end;
   cursor: pointer;
   margin-bottom: 2rem;
+  color:#264e37;
 }
 .loginIcon {
   display: flex;
@@ -106,9 +118,11 @@
 @media screen and (max-width: 768px) {
   .navLinks {
     display: none;
+    color:#264e37;
   }
 
   .hamburger {
     display: block;
+    color:#264e37;
   }
 }
