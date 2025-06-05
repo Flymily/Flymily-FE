@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,31 +12,26 @@ const Home = () => {
     autoplaySpeed: 9000,
     dots: true,
     infinite: true,
-    arrows: false,
+    arrows: true,
     pauseOnHover: false,
   };
 
   return (
-    <div>
-      <div className={styles.sliderContainer}>
-        <Slider {...settings}>
-          {sliderData.map((slide, index) => (
-            <div key={index} className={styles.slide}>
-              <img 
-                src={slide.img} 
-                alt={`Imagen ${index + 1}`} 
-                className={styles.slideImg} 
-              />
-              <div className={styles.textBackdrop}>
-                <h2 className={styles.centeredText}>{slide.text}</h2>
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <section id="buscador">
-        <Buscador />
-      </section>
+    <div className={styles.sliderContainer} data-testid="slider-container">
+      <Slider {...settings}>
+        {sliderData.map((slide, index) => (
+          <div key={index} className={styles.slide} data-testid={`slide-${index}`}>
+          <img 
+            src={slide.img} 
+            alt={`Imagen ${index + 1}`} 
+            className={styles.slideImg} 
+          />
+          <div className={styles.textBackdrop}>
+            <h2 className={styles.centeredText}>{slide.text}</h2>
+          </div>
+        </div>
+        ))}
+      </Slider>
     </div>
   );
 };
