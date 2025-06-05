@@ -10,6 +10,7 @@
 
 .logo img {
   height: 40px;
+  cursor: pointer;
 }
 
 .navLinks {
