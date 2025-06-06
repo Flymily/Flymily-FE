@@ -1,5 +1,7 @@
 import { useState } from "react";
-import axios from "../api/axios";
+import { api as axios } from "../../services/api";
+
+import styles from './Login.module.css';
 
 function LoginPage() {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -64,12 +66,11 @@ function LoginPage() {
   };
 
   return (
-    <main className="login-container" aria-label="Página de inicio de sesión">
-      <form className="login-form" onSubmit={handleSubmit} noValidate autoComplete="off">
+    <main className={styles.loginContainer} aria-label="Página de inicio de sesión">
+      <form className={styles.loginForm} onSubmit={handleSubmit} noValidate autoComplete="off">
         <h2>Iniciar Sesión</h2>
 
-        {error && <div className="error" role="alert">{error}</div>}
-
+        {error && <div className={styles.error} role="alert">{error}</div>}
         <label htmlFor="username">Usuario</label>
         <input
           type="text"

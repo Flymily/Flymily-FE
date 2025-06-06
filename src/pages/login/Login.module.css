@@ -1,70 +1,68 @@
 .loginContainer {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #f7efe6;
-  border-radius: 1.5rem;
   padding: 2rem;
-  max-width: 500px;
-  margin: 4rem auto;
-  font-family: 'Montserrat Alternates', sans-serif;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .loginForm {
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  font-family: "Montserrat Alternates", sans-serif;
 }
 
-.title {
+.loginForm h2 {
   text-align: center;
   color: #1d3b2a;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
 }
 
-.label {
+.loginForm label {
   font-weight: 500;
-  color: #1d3b2a;
-  font-size: 1rem;
+  margin-bottom: -0.5rem;
 }
 
-.input {
+.loginForm input {
+  padding: 0.8rem 1rem;
   border: none;
   border-radius: 2rem;
-  padding: 0.8rem 1.5rem;
+  background-color: #f0f0f0;
   font-size: 1rem;
-  background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.input:focus {
+.loginForm input:focus {
   outline: 2px solid #a3c9a8;
 }
 
-.button {
-  background-color: #4caf8e;
+.loginForm button {
+  background-color: #a3c9a8;
   color: white;
-  border: none;
-  padding: 0.9rem 2.5rem;
+  padding: 0.8rem;
   font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
   border-radius: 2rem;
   cursor: pointer;
-  font-family: 'Montserrat Alternates', sans-serif;
-  transition: background-color 0.3s ease;
-  align-self: center;
-  margin-top: 1rem;
+  transition: background 0.3s ease;
 }
 
-.button:hover {
-  background-color: #3b8b74;
+.loginForm button:hover {
+  background-color: #8abf98;
 }
 
 .error {
-  background-color: #ffefef;
-  color: #b00020;
-  padding: 0.8rem 1.2rem;
+  background-color: #ffe0e0;
+  color: #d33;
+  padding: 0.7rem 1rem;
   border-radius: 1rem;
   text-align: center;
-  font-size: 0.95rem;
-  font-weight: bold;
+  font-size: 0.9rem;
 }
