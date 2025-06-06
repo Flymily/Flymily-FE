@@ -32,11 +32,10 @@ const Buscador = () => {
             <option value="ruta">Ruta en coche</option>
             <option value="inspiracion">Busco inspiración</option>
           </select>
-
           <DatePicker
             selected={startDate}
             onChange={(date) => {
-              console.log("Fecha de ida:", date);
+              console.log("Fecha de ida:", date?.toISOString().split("T")[0]);
               setStartDate(date);
             }}
             selectsStart
@@ -49,7 +48,10 @@ const Buscador = () => {
           <DatePicker
             selected={endDate}
             onChange={(date) => {
-              console.log("Fecha de vuelta:", date);
+              console.log(
+                "Fecha de vuelta:",
+                date?.toISOString().split("T")[0]
+              );
               setEndDate(date);
             }}
             selectsEnd
