@@ -1,0 +1,68 @@
+.loginContainer {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7efe6;
+  padding: 2rem;
+}
+
+.loginForm {
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.loginForm h2 {
+  text-align: center;
+  color: #1d3b2a;
+}
+
+.loginForm label {
+  font-weight: 500;
+  margin-bottom: -0.5rem;
+}
+
+.loginForm input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #f0f0f0;
+  font-size: 1rem;
+}
+
+.loginForm input:focus {
+  outline: 2px solid #a3c9a8;
+}
+
+.loginForm button {
+  background-color: #a3c9a8;
+  color: white;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loginForm button:hover {
+  background-color: #8abf98;
+}
+
+.error {
+  background-color: #ffe0e0;
+  color: #d33;
+  padding: 0.7rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
