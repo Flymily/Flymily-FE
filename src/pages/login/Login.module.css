@@ -1,0 +1,70 @@
+.loginContainer {
+  background-color: #f7efe6;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 4rem auto;
+  font-family: 'Montserrat Alternates', sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.title {
+  text-align: center;
+  color: #1d3b2a;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-weight: 500;
+  color: #1d3b2a;
+  font-size: 1rem;
+}
+
+.input {
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.input:focus {
+  outline: 2px solid #a3c9a8;
+}
+
+.button {
+  background-color: #4caf8e;
+  color: white;
+  border: none;
+  padding: 0.9rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-family: 'Montserrat Alternates', sans-serif;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  margin-top: 1rem;
+}
+
+.button:hover {
+  background-color: #3b8b74;
+}
+
+.error {
+  background-color: #ffefef;
+  color: #b00020;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
