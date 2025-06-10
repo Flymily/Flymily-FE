@@ -6,6 +6,7 @@ import sliderData from '../../assets/data/sliderData.js';
 import Buscador from '../buscador/Buscador';
 
 import styles from './Home.module.css';
+import SuscripcionModal from '../../components/boton-suscripcion/SuscripcionModal.jsx';
 
 const Home = () => {
   const settings = {
@@ -37,6 +38,7 @@ const Home = () => {
       </div>
       <section id="buscador">
         <Buscador />
+        <SuscripcionModal />
       </section>
     </div>
   );
