@@ -25,6 +25,16 @@
   font-weight: 500;
 }
 
+.navLinks a:hover,
+.navLinks a:focus {
+  background-color: #f7efe6; 
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+
 .loginIcon {
   display: flex;
   align-items: center;

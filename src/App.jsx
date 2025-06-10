@@ -8,6 +8,7 @@ import Comunidad from './pages/comunidad/Comunidad';
 import Contacto from './pages/contacto/Contacto';
 import Admin from './pages/admin/Admin';
 import LoginPage from './pages/login/Login';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -1,23 +1,41 @@
 .footer {
-  background-color: #f8f9fa;
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 0.9rem;
-  border-top: 1px solid #dee2e6;
+  background-color: #f7f5e6;
+  padding: 2rem 1rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border-top: 1px solid #ddd;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: flex-start;
 }
 
 .link {
-  margin: 0 1rem;
-  color: #333;
+  color: #1d3b2a;
   text-decoration: none;
+  font-size: rem;
+  font-family: 'Montserrat Alternates', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .link:hover {
+  color: #264e37;
   text-decoration: underline;
 }
 
-.iconText {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.icon {
+  font-size: 1.1rem;
+  color: #1d3b2a;
 }
