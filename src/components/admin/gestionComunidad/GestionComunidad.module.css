@@ -1,0 +1,44 @@
+.comunidadSection {
+  margin-bottom: 3rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+textarea {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-family: inherit;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: #a3c9a8;
+  color: white;
+  cursor: pointer;
+}
+
+.listaPublicaciones ul {
+  list-style: none;
+  padding: 0;
+}
+
+.listaPublicaciones li {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  background: #f5f5f5;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
