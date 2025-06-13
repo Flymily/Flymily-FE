@@ -2,7 +2,7 @@ import styles from './Admin.module.css';
 import GestionViajes from '../../components/admin/gestionViajes/GestionViajes';
 import GestionComunidad from '../../components/admin/gestionComunidad/GestionComunidad';
 //import GestionFAQ from '../../components/admin/gestionFAQ/GestionFAQ';
-//import GestionContacto from '../../components/admin/gestionContacto/GestionContacto';
+import GestionQuienesSomos from '../../components/admin/gestionQuienesSomos/GestionQuienesSomos';
 
 const Admin = () => {
   return (
@@ -13,7 +13,7 @@ const Admin = () => {
       </section>
 
       <section id="comunidad" className={styles.section}>
-        <h2>Comunidad</h2>
+      <h2>Comunidad</h2>
         <GestionComunidad />
       </section>
 
@@ -22,9 +22,9 @@ const Admin = () => {
         {/*<GestionFAQ />*/}
       </section>
 
-      <section id="contacto" className={styles.section}>
-        <h2>Contacto</h2>
-        {/*<GestionContacto />*/}
+      <section id="quienessomos" className={styles.section}>
+        <h2>Quienes Somos</h2>
+        {/*<GestionQuienesSomos />*/}
       </section>
     </main>
   );

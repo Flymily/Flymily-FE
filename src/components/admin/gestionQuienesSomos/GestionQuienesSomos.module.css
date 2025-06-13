@@ -1,0 +1,56 @@
+.container {
+    padding: 1.5rem;
+    background-color: #fffaf6;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+    color: #333;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #444;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    background-color: #fffdfb;
+    transition: border-color 0.3s ease;
+  }
+  
+  textarea:focus {
+    border-color: #ff9f5e;
+    outline: none;
+  }
+  
+  .botonGuardar {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #ff914d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .botonGuardar:hover {
+    background-color: #ff772e;
+  }

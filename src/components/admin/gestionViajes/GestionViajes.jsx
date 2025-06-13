@@ -6,7 +6,6 @@ const GestionViajes = () => {
   const [viajes, setViajes] = useState([]);
 
   useEffect(() => {
-    // Simulación de carga
     setTimeout(() => {
       setViajes(mockViajes);
     }, 500);
@@ -21,11 +20,17 @@ const GestionViajes = () => {
         <div className={styles.lista}>
           {viajes.map((viaje) => (
             <div key={viaje.id} className={styles.card}>
-              <img src={viaje.imagen} alt={viaje.titulo} />
+              <img
+                src={viaje.imagen}
+                alt={viaje.titulo}
+                className={styles.imagenAdmin}
+              />
               <h4>{viaje.titulo}</h4>
               <p>{viaje.descripcion}</p>
-              <button>✏️ Editar</button>
-              <button>🗑 Eliminar</button>
+              <div className={styles.botones}>
+                <button className={styles.editar}>✏️ Editar</button>
+                <button className={styles.eliminar}>🗑 Eliminar</button>
+              </div>
             </div>
           ))}
         </div>

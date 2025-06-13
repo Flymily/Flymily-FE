@@ -1,33 +1,31 @@
-import styles from './GestionComunidad.module.css';
+import { useState } from "react";
+import styles from "./GestionComunidad.module.css";
 
 const GestionComunidad = () => {
+  const [contenido, setContenido] = useState("Nuestra comunidad");
+
+  const handleChange = (e) => {
+    setContenido(e.target.value);
+  };
+
+  const handleSave = () => {
+    
+    console.log("Guardado:", contenido);
+  };
+
   return (
-    <section className={styles.comunidadSection}>
-      <h2>Gestión de Comunidad</h2>
-
-      <div className={styles.formGroup}>
-        <label htmlFor="nuevaPublicacion">Añadir publicación destacada:</label>
-        <textarea id="nuevaPublicacion" rows="4" placeholder="Escribe aquí el contenido..." />
-        <button>Publicar</button>
-      </div>
-
-      <div className={styles.listaPublicaciones}>
-        <h3>Publicaciones actuales</h3>
-        {/* Aquí iría el listado de publicaciones simuladas o traídas de backend */}
-        <ul>
-          <li>
-            "Encuentro mensual de viajeras"
-            <button>Editar</button>
-            <button>Eliminar</button>
-          </li>
-          <li>
-            "Consejos para tu primer viaje sola"
-            <button>Editar</button>
-            <button>Eliminar</button>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <div className={styles.wrapper}>
+      <h3>Editar título o contenido de la comunidad</h3>
+      <textarea
+        value={contenido}
+        onChange={handleChange}
+        rows={6}
+        className={styles.textarea}
+      />
+      <button onClick={handleSave} className={styles.botonGuardar}>
+        Guardar cambios
+      </button>
+    </div>
   );
 };
 

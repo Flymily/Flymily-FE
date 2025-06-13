@@ -17,7 +17,7 @@ function LoginPage() {
     const { name, value } = e.target;
     setForm((prev) => ({
       ...prev,
-      [name]: value.trimStart(), // evita espacios iniciales
+      [name]: value.trimStart()
     }));
   };
 
@@ -25,7 +25,7 @@ function LoginPage() {
     e.preventDefault();
     setError("");
 
-    // Validaciones básicas
+    
     if (!form.username || !form.password) {
       setError("Todos los campos son obligatorios");
       return;
@@ -53,7 +53,7 @@ function LoginPage() {
         }
       );
 
-      alert(response.data); // Puedes cambiarlo por una notificación
+      alert(response.data); 
       window.location.href = "/admin";
     } catch (err) {
       const msg =
