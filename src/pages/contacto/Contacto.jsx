@@ -2,8 +2,13 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import styles from './Contacto.module.css';
 
+const sanitizeInput = (input) =>
+  input.replace(/[<>{}()]/g, '');
+
 const Contacto = () => {
   const [enviado, setEnviado] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorGeneral, setErrorGeneral] = useState(null);
 
   const {
     register,
@@ -12,17 +17,37 @@ const Contacto = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    setEnviado(true);
-    reset();
+  const onSubmit = async (data) => {
+    setLoading(true);
+    setErrorGeneral(null);
+    setEnviado(false);
+
+    try {
+      const sanitizedData = {
+        nombre: sanitizeInput(data.nombre),
+        telefono: sanitizeInput(data.telefono),
+        email: sanitizeInput(data.email),
+        mensaje: sanitizeInput(data.mensaje),
+      };
+
+      console.log('Datos enviados:', sanitizedData);
+
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      setEnviado(true);
+      reset();
+    } catch (error) {
+      setErrorGeneral('Error al enviar el formulario. Inténtalo de nuevo.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className={styles.contactContainer}>
-      
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <h1 className={styles.title}>Contacto</h1>
+
         <label>
           Nombre:
           <input
@@ -81,8 +106,11 @@ const Contacto = () => {
           {errors.mensaje && <span className={styles.error}>{errors.mensaje.message}</span>}
         </label>
 
-        <button type="submit" className={styles.button}>Enviar</button>
+        <button type="submit" className={styles.button} disabled={loading}>
+          {loading ? 'Enviando...' : 'Enviar'}
+        </button>
 
+        {errorGeneral && <p className={styles.error}>{errorGeneral}</p>}
         {enviado && <p className={styles.success}>¡Mensaje enviado correctamente!</p>}
       </form>
     </div>
