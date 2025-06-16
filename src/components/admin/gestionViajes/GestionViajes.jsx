@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { mockViajes } from "../../../mocks/mockViajes";
+import { getAllViajes } from "../../../services/viajes";
 import styles from "./GestionViajes.module.css";
 
 const GestionViajes = () => {
   const [viajes, setViajes] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setViajes(mockViajes);
-    }, 500);
+    const fetchViajes = async () => {
+      try {
+        const response = await getAllViajes();
+        setViajes(response.data);
+      } catch (error) {
+        console.error("❌ Error al cargar viajes:", error);
+      }
+    };
+
+    fetchViajes();
   }, []);
 
   return (
