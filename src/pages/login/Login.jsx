@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { api as axios } from "../../services/api";
-
+import { useForm } from "react-hook-form";
 import styles from './Login.module.css';
 import { Eye, EyeOff } from 'lucide-react'; 
 
@@ -25,7 +25,7 @@ function LoginPage() {
     try {
       const response = await axios.post(
         "/auth/login",
-        { username: form.username, password: form.password },
+        { username: data.username, password: data.password },
         {
           headers: {
             "Content-Type": "application/json",
