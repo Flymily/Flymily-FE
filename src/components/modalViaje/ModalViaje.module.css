@@ -1,0 +1,46 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+  
+  .imagen {
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cerrar {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .detalle p {
+    text-align: center;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }

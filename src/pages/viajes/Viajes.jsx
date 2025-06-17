@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Viajes.module.css";
-//import { getViajes } from '../../services/viajes';
-
+import ModalViaje from "../../components/modalViaje/ModalViaje";
 import { getAllViajesPublicos } from '../../services/viajes';
 
 const Viajes = () => {
   const [viajes, setViajes] = useState([]);
+  const [viajeSeleccionado, setViajeSeleccionado] = useState(null);
 
   useEffect(() => {
     const fetchViajes = async () => {
       try {
         const response = await getAllViajesPublicos();
+        console.log("Viajes desde la API:", response.data);
         setViajes(response.data);
       } catch (error) {
         console.error("❌ Error al cargar viajes:", error);
@@ -23,19 +24,31 @@ const Viajes = () => {
   return (
     <div className={styles.viajesContainer}>
       <h2 className={styles.titulo}>Viajes destacados</h2>
+
       {viajes.length === 0 ? (
         <p className={styles.mensaje}>Cargando viajes...</p>
       ) : (
         <div className={styles.grid}>
           {viajes.map((viaje) => (
-            <div key={viaje.id} className={styles.card}>
-              <img src={viaje.imagen} alt={viaje.titulo} className={styles.imagenViaje} />
-              <h3>{viaje.titulo}</h3>
-              <p>{viaje.descripcion}</p>
+            <div
+              key={viaje.id}
+              className={styles.card}
+              onClick={() => setViajeSeleccionado(viaje)}
+              style={{ cursor: "pointer" }}
+            >
+              <img src={viaje.imgPath} alt={viaje.title} className={styles.imagenViaje} />
+              <h3>{viaje.title}</h3>
+              <p>{viaje.description}</p>
               <span className={styles.tipo}>{viaje.tipo}</span>
             </div>
           ))}
         </div>
+      )}
+      {viajeSeleccionado && (
+        <ModalViaje
+          viaje={viajeSeleccionado}
+          onClose={() => setViajeSeleccionado(null)}
+        />
       )}
     </div>
   );

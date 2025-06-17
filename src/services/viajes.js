@@ -1,6 +1,6 @@
 import { api } from './api';
 
-export const getAllViajesPublicos = () => api.get('/viaje/abierto');
+export const getAllViajesPublicos = () => api.get('/viajes');
 export const getViajes = () => api.get('/viaje');
 export const getAllViajes = () => api.get('/viaje');
 
