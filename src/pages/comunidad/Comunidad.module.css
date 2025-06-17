@@ -1,0 +1,52 @@
+.comunidadContainer {
+  padding: 2rem;
+  font-family: "Montserrat Alternates", sans-serif;
+  background-color: #f9f9f9;
+}
+
+.titulo {
+  text-align: center;
+  color: #2f4f4f;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.gridGaleria {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #333;
+}

@@ -9,6 +9,7 @@ const GestionViajes = () => {
     const fetchViajes = async () => {
       try {
         const response = await getAllViajes();
+        console.log("Respuesta desde backend (Gestión Viajes):", response);
         setViajes(response.data);
       } catch (error) {
         console.error("❌ Error al cargar viajes:", error);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api as axios } from "../../services/api";
+import { login } from '../../services/login';
 
 import styles from './Login.module.css';
 
@@ -43,16 +43,7 @@ function LoginPage() {
 
     setIsLoading(true);
     try {
-      const response = await axios.post(
-        "/auth/login",
-        { username: form.username, password: form.password },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
+      const response = await login(form);
       alert(response.data); 
       window.location.href = "/admin";
     } catch (err) {

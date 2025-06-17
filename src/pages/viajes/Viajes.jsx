@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Viajes.module.css";
-import { api } from '../../services/api';
+import { getViajes } from '../../services/viajes';
 
 const Viajes = () => {
   const [viajes, setViajes] = useState([]);
@@ -8,7 +8,8 @@ const Viajes = () => {
   useEffect(() => {
     const fetchViajes = async () => {
       try {
-        const response = await api.get("/viaje");
+        const response = await getViajes();
+        console.log("Respuesta del backend:", response);
         setViajes(response.data);
       } catch (error) {
         console.error("❌ Error al cargar viajes:", error);
