@@ -8,6 +8,7 @@ import Buscador from "../buscador/Buscador";
 import SuscripcionModal from "../../components/boton-suscripcion/SuscripcionModal";
 
 import styles from "./Home.module.css";
+import RecomendacionesViaje from "../../components/recomendaciones-viaje/RecomendacionesViaje";
 
 const Home = () => {
   
@@ -67,6 +68,7 @@ const Home = () => {
       </div>
       <section id="buscador">
         <Buscador />
+        <RecomendacionesViaje />
         <SuscripcionModal />
       </section>
     </div>

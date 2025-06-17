@@ -1,3 +1,7 @@
+.titulo {
+    text-align: center;
+    font-size: 2rem;
+}
 .formulario {
     background-color: #f7efe6;
     border-radius: 1.5rem;

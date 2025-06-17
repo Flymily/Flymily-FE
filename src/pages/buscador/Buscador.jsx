@@ -17,6 +17,7 @@ const Buscador = () => {
   return (
     <section className={styles.buscadorContainer}>
       <form className={styles.formulario}>
+        <h1 className={styles.titulo}>Encuentra tu viaje Ideal</h1>
         <div className={styles.filaPrincipal}>
           <select
             className={styles.selectInput}

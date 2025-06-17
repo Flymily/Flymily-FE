@@ -1,0 +1,64 @@
+.recomendacionesContainer {
+  background-color: #f4f8fb;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.seccionesContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.seccion {
+  width: 425px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.categoriaTitulo {
+  font-size: 1.3rem;
+  color: #2980b9;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres elementos por fila */
+  gap: 0.5rem;
+}
+
+.gridItem {
+  font-size: 1rem;
+  color: #7f8c8d;
+  background-color: #ecf0f1;
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.gridItem:hover {
+  background-color: #2980b9;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.seccion:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
