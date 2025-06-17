@@ -1,90 +1,96 @@
 import { useState } from "react";
-import { login } from '../../services/login';
+import { api as axios } from "../../services/api";
 
 import styles from './Login.module.css';
+import { Eye, EyeOff } from 'lucide-react'; 
 
 function LoginPage() {
-  const [form, setForm] = useState({ username: "", password: "" });
-  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [serverError, setServerError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const isValidInput = (value) => {
-    const regex = /^[a-zA-Z0-9._-]{3,20}$/;
-    return regex.test(value);
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: value.trimStart()
-    }));
-  };
+  const togglePassword = () => setShowPassword(prev => !prev);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-
-    
-    if (!form.username || !form.password) {
-      setError("Todos los campos son obligatorios");
-      return;
-    }
-
-    if (!isValidInput(form.username)) {
-      setError("El nombre de usuario no es válido (3-20 caracteres, sin símbolos raros)");
-      return;
-    }
-
-    if (form.password.length < 6) {
-      setError("La contraseña debe tener al menos 6 caracteres");
-      return;
-    }
-
+  const onSubmit = async (data) => {
     setIsLoading(true);
+    setServerError("");
+
     try {
-      const response = await login(form);
+      const response = await axios.post(
+        "/auth/login",
+        { username: form.username, password: form.password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       alert(response.data); 
       window.location.href = "/admin";
     } catch (err) {
-      const msg =
-        err.response?.data ||
-        "Error inesperado en el servidor. Inténtalo más tarde.";
-      setError(typeof msg === "string" ? msg : JSON.stringify(msg));
+      setServerError("Usuario o contraseña incorrectos");
     } finally {
       setIsLoading(false);
+      reset({ password: "" });
     }
   };
 
   return (
     <main className={styles.loginContainer} aria-label="Página de inicio de sesión">
-      <form className={styles.loginForm} onSubmit={handleSubmit} noValidate autoComplete="off">
+      <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)} noValidate>
         <h2>Iniciar Sesión</h2>
 
-        {error && <div className={styles.error} role="alert">{error}</div>}
+        {serverError && <div className={styles.error} role="alert">{serverError}</div>}
+
         <label htmlFor="username">Usuario</label>
         <input
-          type="text"
-          name="username"
           id="username"
-          value={form.username}
-          onChange={handleChange}
+          type="text"
+          {...register("username", {
+            required: "El usuario es obligatorio",
+            pattern: {
+              value: /^[a-zA-Z0-9._-]{3,20}$/,
+              message: "Debe tener entre 3 y 20 caracteres sin símbolos raros",
+            },
+          })}
           autoComplete="username"
           placeholder="Ej: admin123"
-          required
         />
+        {errors.username && <span className={styles.error}>{errors.username.message}</span>}
 
         <label htmlFor="password">Contraseña</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={form.password}
-          onChange={handleChange}
-          autoComplete="current-password"
-          placeholder="Mínimo 6 caracteres"
-          required
-        />
+        <div className={styles.passwordContainer}>
+          <input
+            id="password"
+            type={showPassword ? "text" : "password"}
+            {...register("password", {
+              required: "La contraseña es obligatoria",
+              minLength: {
+                value: 6,
+                message: "Mínimo 6 caracteres",
+              },
+              pattern: {
+                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/,
+                message:
+                  "Usa mayúsculas, minúsculas, números y un carácter especial",
+              },
+            })}
+            autoComplete="current-password"
+            placeholder="Contraseña segura"
+          />
+          <button type="button" onClick={togglePassword} className={styles.toggleBtn} aria-label="Mostrar/Ocultar contraseña">
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        </div>
+        {errors.password && <span className={styles.error}>{errors.password.message}</span>}
 
         <button type="submit" disabled={isLoading}>
           {isLoading ? "Cargando..." : "Entrar"}

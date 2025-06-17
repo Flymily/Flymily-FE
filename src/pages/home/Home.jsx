@@ -1,33 +1,39 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import sliderData from '../../assets/data/sliderData.js';
-import Buscador from '../buscador/Buscador';
+import React, { useRef, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import styles from './Home.module.css';
-import SuscripcionModal from '../../components/boton-suscripcion/SuscripcionModal.jsx';
+import sliderData from "../../assets/data/sliderData";
+import Buscador from "../buscador/Buscador";
+import SuscripcionModal from "../../components/boton-suscripcion/SuscripcionModal";
+
+import styles from "./Home.module.css";
 
 const Home = () => {
+  
+  const [activeSlide, setActiveSlide] = useState(0);
+  const sliderRef = useRef(null);
+
   const settings = {
     autoplay: true,
     autoplaySpeed: 9000,
-    dots: true,
+    dots: false,
     infinite: true,
     arrows: false,
     pauseOnHover: false,
+    beforeChange: (_, next) => setActiveSlide(next),
   };
 
   return (
     <div>
       <div className={styles.sliderContainer}>
-        <Slider {...settings}>
-          {sliderData.map((slide, index) => (
-            <div key={index} className={styles.slide}>
-              <img 
-                src={slide.img} 
-                alt={`Imagen ${index + 1}`} 
-                className={styles.slideImg} 
+        <Slider {...settings} ref={sliderRef}>
+          {sliderData.map((slide, i) => (
+            <div key={i} className={styles.slide}>
+              <img
+                src={slide.img}
+                alt={`Imagen ${i + 1}`}
+                className={styles.slideImg}
               />
               <div className={styles.textBackdrop}>
                 <h2 className={styles.centeredText}>{slide.text}</h2>
@@ -35,6 +41,29 @@ const Home = () => {
             </div>
           ))}
         </Slider>
+        <div className={styles.progressContainer}>
+          {sliderData.map((_, i) => (
+            <div
+              key={i}
+              className={styles.progressBar}
+              role="button"
+              tabIndex={0}
+              onClick={() => sliderRef.current?.slickGoTo(i)}
+              onKeyDown={(e) =>
+                e.key === "Enter" && sliderRef.current?.slickGoTo(i)
+              }
+            >
+              <div
+                className={`${styles.progressInner} ${
+                  activeSlide === i ? styles.active : ""
+                }`}
+                style={{
+                  animationDuration: `${settings.autoplaySpeed}ms`,
+                }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
       <section id="buscador">
         <Buscador />
