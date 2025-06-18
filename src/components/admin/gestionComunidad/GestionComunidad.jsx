@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./GestionComunidad.module.css";
-import { getContenidoComunidad, updateContenidoComunidad } from "../../../services/comunidad";
+import { getContenidoComunidad, updateContenidoComunidad } from '../../../services/comunidad';
 
 const GestionComunidad = () => {
   const [contenido, setContenido] = useState("");
