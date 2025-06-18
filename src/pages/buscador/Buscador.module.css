@@ -4,9 +4,7 @@
 }
 .formulario {
     background-color: #f7efe6;
-    border-radius: 1.5rem;
     padding: 2rem;
-    max-width: 1355px;
     margin: 4rem auto;
     display: flex;
     flex-direction: column;
