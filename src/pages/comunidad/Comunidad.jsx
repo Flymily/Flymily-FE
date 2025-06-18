@@ -34,8 +34,10 @@ const Comunidad = () => {
           contenidoComunidad.map((post) => (
             <div key={post.id} className={styles.card}>
               <img src={post.imgPathComunidad} alt={post.tituloPost} />
-              <h3>{post.tituloPost}</h3>
-              <p>{post.contenidoPost}</p>
+                <div className={styles.cardContent}>
+                  <h3>{post.tituloPost}</h3>
+                  <p>{post.contenidoPost}</p>
+                </div>
             </div>
           ))
         )}

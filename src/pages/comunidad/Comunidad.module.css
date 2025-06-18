@@ -1,52 +1,75 @@
 .comunidadContainer {
-  padding: 2rem;
-  font-family: "Montserrat Alternates", sans-serif;
-  background-color: #f9f9f9;
+  background-color: #f7efe6;
+  padding: 3rem 2rem;
+  text-align: center;
+  min-height: 100vh;
 }
 
 .titulo {
-  text-align: center;
-  color: #2f4f4f;
   font-size: 2.5rem;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #2f6846;
   margin-bottom: 1rem;
 }
 
 .descripcion {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  color: #555;
   font-size: 1.1rem;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
 }
 
 .gridGaleria {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 1rem;
+  width: 100%;
+  align-items: center;
 }
 
 .card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   background: white;
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.03);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 1200px;
+  width: 95%;
+  gap: 2rem;
+  text-align: left;
 }
 
 .card img {
-  width: 100%;
-  height: 200px;
+  width: 350px;
+  height: 240px;
+  border-radius: 1rem;
   object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card h3 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2f6846;
 }
 
 .card p {
-  padding: 1rem;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  color: #333;
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
 }
