@@ -59,11 +59,10 @@ const Contacto = () => {
         </label>
 
         <label>
-          Teléfono:
+          Teléfono (opcional):
           <input
             type="tel"
             {...register('telefono', {
-              required: 'El teléfono es obligatorio',
               pattern: {
                 value: /^\d{9}$/,
                 message: 'Debe tener 9 dígitos',
@@ -73,7 +72,6 @@ const Contacto = () => {
           />
           {errors.telefono && <span className={styles.error}>{errors.telefono.message}</span>}
         </label>
-
         <label>
           Correo electrónico:
           <input
