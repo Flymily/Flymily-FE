@@ -7,6 +7,7 @@ import Buscador from './pages/buscador/Buscador';
 import Comunidad from './pages/comunidad/Comunidad';
 import Contacto from './pages/contacto/Contacto';
 import Admin from './pages/admin/Admin';
+import GestionViajes from './components/admin/gestionViajes/GestionViajes';
 import LoginPage from './pages/login/Login';
 import Footer from './components/footer/Footer';
 import QuienesSomos from './pages/quienesSomos/QuienesSomos';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/comunidad" element={<Comunidad />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/viajes" element={<GestionViajes />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/quienes-somos" element={<QuienesSomos />} />
       </Routes>
