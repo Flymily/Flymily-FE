@@ -32,7 +32,14 @@
     text-align: center;
     transition: transform 0.2s ease;
   }
-  
+  .card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .card:hover {
     transform: scale(1.03);
   }
