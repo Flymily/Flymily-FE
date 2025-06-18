@@ -1,46 +1,94 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  max-width: 800px;
+  width: 90%;
+  font-family: "Montserrat Alternates", sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.imagen {
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+}
+
+.titulo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #5A8F68; /* verde Flymily */
   
-  .modal {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    max-width: 500px;
-    width: 90%;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #444;
+}
+
+.detalle {
+  text-align: left;
+  font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2rem;
+  margin-top: 1.5rem;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #444;
+}
+
+.detalle p {
+  margin: 0;
+}
+
+.detalle strong {
+  color: #518258;
+  font-weight: 600;
+}
+
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cerrar:hover {
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
   }
-  
-  .imagen {
-    width: 100%;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .cerrar {
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  .detalle p {
-    text-align: center;
-    margin: 0.5rem 0;
-    font-size: 0.95rem;
-    line-height: 1.4;
-  }
+}

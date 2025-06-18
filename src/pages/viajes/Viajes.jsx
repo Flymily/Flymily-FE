@@ -38,7 +38,9 @@ const Viajes = () => {
             >
               <img src={viaje.imgPath} alt={viaje.title} className={styles.imagenViaje} />
               <h3>{viaje.title}</h3>
-              <p>{viaje.description}</p>
+              <p>{viaje.description.length > 80 
+                  ? viaje.description.slice(0, 80) + "..." 
+                  : viaje.description}</p>
               <span className={styles.tipo}>{viaje.tipo}</span>
             </div>
           ))}
