@@ -11,10 +11,12 @@ import GestionViajes from './components/admin/gestionViajes/GestionViajes';
 import LoginPage from './pages/login/Login';
 import Footer from './components/footer/Footer';
 import QuienesSomos from './pages/quienesSomos/QuienesSomos';
+import PrivateRoute from './components/PrivateRoute'; 
 
 function App() {
   return (
     <>
+     
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,6 +28,7 @@ function App() {
         <Route path="/admin/viajes" element={<GestionViajes />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/quienes-somos" element={<QuienesSomos />} />
+        <Route path="/admin/*" element={<PrivateRoute><Admin /></PrivateRoute>}/>
       </Routes>
       <Footer />
     </>

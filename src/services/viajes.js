@@ -1,12 +1,8 @@
 import { api } from './api';
+import { apiProtected } from './apiProtected';
 
-export const getAllViajesPublicos = () => api.get('/viajes/filtrar/detalle/all');
-export const getViajes = () => api.get('/viajes/filtrar/detalle/all');
-export const getAllViajes = () => api.get('/viajes/filtrar/detalle/all');
+export const getAllViajesPublicos = () =>api.get('/viajes/filtrar/detalle/all');
+export const getAllViajes        = () => api.get('/viajes/filtrar/detalle/all');
 
-export const createViaje = (viaje, ciudadSalida, paisSalida, ciudadDestino, paisDestino, tipoViaje, transporte) => {
-  return api.post(
-    `/viajes/filtrar/detalle/all/${ciudadSalida}/${paisSalida}/${ciudadDestino}/${paisDestino}/${tipoViaje}/${transporte}`,
-    viaje
-  );
-};
+
+export const createViaje = body => apiProtected.post('/viajes/crear', body);

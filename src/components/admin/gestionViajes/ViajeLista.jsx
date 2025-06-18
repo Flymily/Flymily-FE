@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getViajes } from '../../../services/viajes'; // Ruta correcta a tu servicio
+import { getAllViajes } from '../../../services/viajes';
 import styles from './viajeLista.module.css';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
@@ -9,7 +9,7 @@ const ViajeLista = ({ onEdit, reload }) => {
 
   const cargarViajes = async () => {
     try {
-      const res = await getViajes();
+      const res = await getAllViajes();
 
       // Verifica si es un array directo o viene dentro de una propiedad
       const data = res.data;

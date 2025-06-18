@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { api as axios } from "../../services/api";
 import { useForm } from "react-hook-form";
 import styles from './Login.module.css';
 import { Eye, EyeOff } from 'lucide-react'; 
+import { useAuth } from "../../context/AuthContext"; // 👈 Importamos el contexto
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const { login } = useAuth(); // 👈 Usamos el login del contexto
 
   const {
     register,
@@ -23,18 +25,8 @@ function LoginPage() {
     setServerError("");
 
     try {
-      const response = await axios.post(
-        "/auth/login",
-        { username: data.username, password: data.password },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      alert(response.data); 
-      window.location.href = "/admin";
+      await login(data.username, data.password); // 👈 Llamamos al login del contexto
+      // Redirigirá automáticamente si el contexto tiene useNavigate
     } catch (err) {
       setServerError("Usuario o contraseña incorrectos");
     } finally {
