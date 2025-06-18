@@ -1,10 +1,20 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Admin.module.css';
 import GestionViajes from '../../components/admin/gestionViajes/GestionViajes';
 import GestionComunidad from '../../components/admin/gestionComunidad/GestionComunidad';
-//import GestionFAQ from '../../components/admin/gestionFAQ/GestionFAQ';
-import GestionQuienesSomos from '../../components/admin/gestionQuienesSomos/GestionQuienesSomos';
+
 
 const Admin = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("userSession");
+    if (!user) {
+      navigate("/login"); 
+    }
+  }, [navigate]);
+
   return (
     <main className={styles.adminPage}>
       <section id="viajes" className={styles.section}>
@@ -13,21 +23,29 @@ const Admin = () => {
       </section>
 
       <section id="comunidad" className={styles.section}>
-      <h2>Comunidad</h2>
+        <h2>Comunidad</h2>
         <GestionComunidad />
       </section>
 
       <section id="faq" className={styles.section}>
         <h2>Preguntas Frecuentes</h2>
-        {/*<GestionFAQ />*/}
+        {/* <GestionFAQ /> */}
       </section>
 
       <section id="quienessomos" className={styles.section}>
         <h2>Quienes Somos</h2>
-        {/*<GestionQuienesSomos />*/}
+        {/* <GestionQuienesSomos /> */}
       </section>
     </main>
   );
 };
+
+<button onClick={() => {
+  localStorage.removeItem("userSession");
+  window.location.href = "/login";
+}}>
+  Cerrar sesión
+</button>
+
 
 export default Admin;

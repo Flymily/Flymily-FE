@@ -33,8 +33,9 @@ function LoginPage() {
         }
       );
 
-      alert(response.data); 
-      window.location.href = "/admin";
+      localStorage.setItem("userSession", JSON.stringify(response.data)); // guarda el token o info del usuario
+window.location.href = "/admin";
+
     } catch (err) {
       setServerError("Usuario o contraseña incorrectos");
     } finally {
