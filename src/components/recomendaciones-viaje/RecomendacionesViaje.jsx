@@ -1,99 +1,84 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./RecomendacionesViaje.module.css";
+import {
+  FaMountain,
+  FaCampground,
+  FaUmbrellaBeach,
+  FaSnowflake,
+  FaHiking,
+  FaBinoculars
+} from "react-icons/fa";
 
-// Datos de recomendaciones categorizadas por tipo de viaje
-const recomendaciones = {
-  montaña: [
-    { id: 1, item: "Botas de montaña" },
-    { id: 2, item: "Chaqueta impermeable" },
-    { id: 3, item: "Mapa topográfico" },
-    { id: 4, item: "Sombrero de montaña" },
-    { id: 5, item: "Linterna de mano" },
-    { id: 6, item: "Pantalones impermeables" },
-    { id: 7, item: "Capa de lluvia" },
-    { id: 8, item: "GPS portátil" },
-    { id: 9, item: "Barra energética" },
+const datos = {
+  Montaña: [
+    "Botas de senderismo", "Chaqueta impermeable", "Mapa", "Protección solar",
+    "Mochila", "Comida energética", "Gorra", "Agua", "Linterna"
   ],
-  playa: [
-    { id: 1, item: "Protector solar" },
-    { id: 2, item: "Toalla de playa" },
-    { id: 3, item: "Gafas de sol" },
-    { id: 4, item: "Traje de baño" },
-    { id: 5, item: "Sombrero de playa" },
-    { id: 6, item: "Sandalias" },
-    { id: 7, item: "Balsa inflable" },
-    { id: 8, item: "Crema para después del sol" },
-    { id: 9, item: "Bolsa impermeable para teléfono" },
+  Camping: [
+    "Tienda de campaña", "Saco de dormir", "Hornillo", "Comida enlatada",
+    "Manta", "Cuerda", "Encendedor", "Agua", "Linterna"
   ],
-  trekking: [
-    { id: 1, item: "Mochila de trekking" },
-    { id: 2, item: "Bastones de trekking" },
-    { id: 3, item: "Hidratación" },
-    { id: 4, item: "Botas de trekking" },
-    { id: 5, item: "Pantalones de trekking" },
-    { id: 6, item: "Chaqueta ligera" },
-    { id: 7, item: "Manta térmica" },
-    { id: 8, item: "Guantes de trekking" },
-    { id: 9, item: "Mapas y brújula" },
+  Playa: [
+    "Protector solar", "Gafas de sol", "Toalla", "Bañador",
+    "Sombrero", "Chanclas", "Agua", "Snacks", "Libro"
   ],
-  camping: [
-    { id: 1, item: "Tienda de campaña" },
-    { id: 2, item: "Linterna" },
-    { id: 3, item: "Saco de dormir" },
-    { id: 4, item: "Cuchillo multiusos" },
-    { id: 5, item: "Fogón portátil" },
-    { id: 6, item: "Manta de picnic" },
-    { id: 7, item: "Protector de mosquitos" },
-    { id: 8, item: "Kit de primeros auxilios" },
-    { id: 9, item: "Comida enlatada" },
+  Nieve: [
+    "Ropa térmica", "Guantes", "Gorro", "Crampones",
+    "Protección solar", "Gafas de nieve", "Bastones", "Botas impermeables", "Mapa"
   ],
-  nieve: [
-    { id: 1, item: "Esquís" },
-    { id: 2, item: "Chaqueta de nieve" },
-    { id: 3, item: "Botas de nieve" },
-    { id: 4, item: "Guantes impermeables" },
-    { id: 5, item: "Gafas de nieve" },
-    { id: 6, item: "Pantalones de nieve" },
-    { id: 7, item: "Cremas protectoras" },
-    { id: 8, item: "Telesquí" },
-    { id: 9, item: "Cargadores portátiles" },
+  Trekking: [
+    "Bastones de trekking", "Botas resistentes", "GPS", "Mochila ligera",
+    "Agua", "Snacks", "Impermeable", "Camiseta de repuesto", "Sombrero"
   ],
-  safari: [
-    { id: 1, item: "Binoculares" },
-    { id: 2, item: "Sombrero de safari" },
-    { id: 3, item: "Protector solar" },
-    { id: 4, item: "Botas resistentes" },
-    { id: 5, item: "Cámara fotográfica" },
-    { id: 6, item: "Ropa de colores neutros" },
-    { id: 7, item: "Repelente de insectos" },
-    { id: 8, item: "Gafas de sol" },
-    { id: 9, item: "Mapa de fauna local" },
-  ],
+  Safari: [
+    "Prismáticos", "Protección solar", "Repelente de insectos", "Sombrero",
+    "Cámara", "Ropa ligera de colores neutros", "Cantimplora", "Mochila pequeña", "Mapa"
+  ]
 };
 
-const RecomendacionesViaje = () => {
+const iconos = {
+  Montaña: <FaMountain size={50} />,
+  Camping: <FaCampground size={50} />,
+  Playa: <FaUmbrellaBeach size={50} />,
+  Nieve: <FaSnowflake size={50} />,
+  Trekking: <FaHiking size={50} />,
+  Safari: <FaBinoculars size={50} />
+};
+
+const categorias = Object.keys(datos);
+
+export default function RecomendacionesViaje() {
+  const [categoriaActiva, setCategoriaActiva] = useState(null);
+
   return (
-    <div className={styles.recomendacionesContainer}>
-      <h2 className={styles.titulo}>Recomendaciones para tu viaje</h2>
-      <div className={styles.seccionesContainer}>
-        {/* Sección para cada tipo de viaje */}
-        {Object.keys(recomendaciones).map((categoria) => (
-          <div key={categoria} className={styles.seccion}>
-            <h3 className={styles.categoriaTitulo}>
-              {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
-            </h3>
-            <div className={styles.gridContainer}>
-              {recomendaciones[categoria].map((recomendacion) => (
-                <div key={recomendacion.id} className={styles.gridItem}>
-                  {recomendacion.item}
-                </div>
-              ))}
+    <section className={styles.recomendaciones}>
+      <h2>Tips & Herramientas, para hacerlo fácil</h2>
+      <p className={styles.subtitulo}>Según tu viaje no olvides llevarte...</p>
+
+      <div className={styles.categorias}>
+        {categorias.map((categoria) => (
+          <div key={categoria} className={styles.categoria} onClick={() => setCategoriaActiva(categoria)}>
+            <div className={styles.iconoCirculo}>
+              {iconos[categoria]}
             </div>
+            <p>{categoria}</p>
           </div>
         ))}
       </div>
-    </div>
-  );
-};
 
-export default RecomendacionesViaje
+      {categoriaActiva && (
+        <div className={styles.modalOverlay} onClick={() => setCategoriaActiva(null)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <h3>{categoriaActiva}: No olvides llevar</h3>
+            <ul>
+              {datos[categoriaActiva].map((item, idx) => (
+                <li key={idx}>✔ {item}</li>
+              ))}
+            </ul>
+            <button onClick={() => setCategoriaActiva(null)}>Cerrar</button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
