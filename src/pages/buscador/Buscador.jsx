@@ -2,6 +2,32 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Buscador.module.css";
+import {
+  FaRegMoon,
+  FaCalendarAlt,
+  FaMapMarkedAlt,
+  FaUserFriends,
+  FaChild,
+  FaSearch,
+  FaChevronDown,
+  FaChevronUp,
+  FaSuitcaseRolling
+} from "react-icons/fa";
+
+const InputConIcono = React.forwardRef(({ value, onClick, placeholder }, ref) => (
+  <div className={styles.inputGroup} onClick={onClick}>
+    <FaCalendarAlt className={styles.iconInside} />
+    <input
+      type="text"
+      value={value}
+      onClick={onClick}
+      placeholder={placeholder}
+      ref={ref}
+      readOnly
+      className={styles.inputWithIcon}
+    />
+  </div>
+));
 
 const Buscador = () => {
   const [tipoViaje, setTipoViaje] = useState("");
@@ -17,96 +43,84 @@ const Buscador = () => {
   return (
     <section className={styles.buscadorContainer}>
       <form className={styles.formulario}>
-        <h1 className={styles.titulo}>Encuentra tu viaje Ideal</h1>
+        <h1 className={styles.titulo}>Encuentra tu viaje ideal</h1>
+
         <div className={styles.filaPrincipal}>
-          <select
-            className={styles.selectInput}
-            value={tipoViaje}
-            onChange={(e) => setTipoViaje(e.target.value)}
-          >
-            <option value="">Tipo de tipo Viaje</option>
-            <option value="safari">Safari</option>
-            <option value="nieve">Nieve</option>
-            <option value="montania">Montaña</option>
-            <option value="cultural">Cultural</option>
-            <option value="playa">Playa</option>
-            <option value="ruta">Ruta en coche</option>
-            <option value="inspiracion">Busco inspiración</option>
-          </select>
+          <div className={styles.inputGroup}>
+            <FaSuitcaseRolling className={styles.iconInside} />
+            <select
+              className={styles.inputWithIcon}
+              value={tipoViaje}
+              onChange={(e) => setTipoViaje(e.target.value)}
+            >
+              <option value="">Tipo de Viaje</option>
+              <option value="safari">Safari</option>
+              <option value="nieve">Nieve</option>
+              <option value="montania">Montaña</option>
+              <option value="cultural">Cultural</option>
+              <option value="playa">Playa</option>
+              <option value="ruta">Ruta en coche</option>
+              <option value="inspiracion">Busco inspiración</option>
+            </select>
+          </div>
+
           <DatePicker
             selected={startDate}
-            onChange={(date) => {
-              console.log("Fecha de ida:", date?.toISOString().split("T")[0]);
-              setStartDate(date);
-            }}
+            onChange={(date) => setStartDate(date)}
             selectsStart
             startDate={startDate}
             endDate={endDate}
-            placeholderText="Ida"
-            className={styles.dateInput}
+            placeholderText="Fecha ida"
+            customInput={<InputConIcono />}
           />
 
           <DatePicker
             selected={endDate}
-            onChange={(date) => {
-              console.log(
-                "Fecha de vuelta:",
-                date?.toISOString().split("T")[0]
-              );
-              setEndDate(date);
-            }}
+            onChange={(date) => setEndDate(date)}
             selectsEnd
             startDate={startDate}
             endDate={endDate}
             minDate={startDate}
-            placeholderText="Vuelta"
-            className={styles.dateInput}
+            placeholderText="Fecha vuelta"
+            customInput={<InputConIcono />}
           />
 
-          <input
-            type="text"
-            placeholder="Origen"
-            value={origen}
-            onChange={(e) => setOrigen(e.target.value)}
-            className={styles.textInput}
-          />
+          <div className={styles.inputGroup}>
+            <FaMapMarkedAlt className={styles.iconInside} />
+            <input
+              type="text"
+              placeholder="Origen"
+              value={origen}
+              onChange={(e) => setOrigen(e.target.value)}
+              className={styles.inputWithIcon}
+            />
+          </div>
 
-          <input
-            type="text"
-            placeholder="Destino"
-            value={destino}
-            onChange={(e) => setDestino(e.target.value)}
-            className={styles.textInput}
-          />
+          <div className={styles.inputGroup}>
+            <FaMapMarkedAlt className={styles.iconInside} />
+            <input
+              type="text"
+              placeholder="Destino"
+              value={destino}
+              onChange={(e) => setDestino(e.target.value)}
+              className={styles.inputWithIcon}
+            />
+          </div>
         </div>
 
         <div className={styles.personasEdad}>
           <div className={styles.counter}>
-            <label>Adultos</label>
-            <button
-              type="button"
-              onClick={() => setAdultos(Math.max(1, adultos - 1))}
-            >
-              -
-            </button>
+            <label><FaUserFriends /> Adultos</label>
+            <button type="button" onClick={() => setAdultos(Math.max(1, adultos - 1))}>-</button>
             <span>{adultos}</span>
-            <button type="button" onClick={() => setAdultos(adultos + 1)}>
-              +
-            </button>
+            <button type="button" onClick={() => setAdultos(adultos + 1)}>+</button>
           </div>
 
           <div className={styles.counter}>
-            <label>Niños</label>
-            <button
-              type="button"
-              onClick={() => setNinos(Math.max(0, niños - 1))}
-            >
-              -
-            </button>
+            <label><FaChild /> Niños</label>
+            <button type="button" onClick={() => setNinos(Math.max(0, niños - 1))}>-</button>
             <span>{niños}</span>
-            <button type="button" onClick={() => setNinos(niños + 1)}>
-              +
-            </button>
+            <button type="button" onClick={() => setNinos(niños + 1)}>+</button>
           </div>
         </div>
 
@@ -125,9 +139,7 @@ const Buscador = () => {
                 className={styles.edadesInput}
               >
                 {Array.from({ length: 18 }, (_, j) => (
-                  <option key={j} value={j}>
-                    {j}
-                  </option>
+                  <option key={j} value={j}>{j}</option>
                 ))}
               </select>
             ))}
@@ -139,7 +151,7 @@ const Buscador = () => {
           className={styles.advancedToggle}
           onClick={() => setMostrarAvanzado(!mostrarAvanzado)}
         >
-          {mostrarAvanzado ? "Ocultar búsqueda avanzada" : "Búsqueda avanzada"}
+          {mostrarAvanzado ? <><FaChevronUp /> Ocultar</> : <><FaChevronDown /> Búsqueda avanzada</>}
         </button>
 
         {mostrarAvanzado && (
@@ -169,8 +181,9 @@ const Buscador = () => {
             />
           </div>
         )}
+
         <button type="submit" className={styles.botonBuscar}>
-          Buscar
+          <FaSearch /> Buscar
         </button>
       </form>
     </section>
@@ -178,3 +191,4 @@ const Buscador = () => {
 };
 
 export default Buscador;
+
