@@ -10,4 +10,3 @@ export const createViaje = (viaje, ciudadSalida, paisSalida, ciudadDestino, pais
     viaje
   );
 };
-
