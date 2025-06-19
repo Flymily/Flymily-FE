@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from './Login.module.css';
 import { Eye, EyeOff } from 'lucide-react'; 
-import { useAuth } from "../../context/AuthContext"; // 👈 Importamos el contexto
+import { useAuth } from "../../context/AuthContext";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login } = useAuth(); // 👈 Usamos el login del contexto
+  const { login } = useAuth(); 
 
   const {
     register,
@@ -25,8 +25,8 @@ function LoginPage() {
     setServerError("");
 
     try {
-      await login(data.username, data.password); // 👈 Llamamos al login del contexto
-      // Redirigirá automáticamente si el contexto tiene useNavigate
+      await login(data.username, data.password); 
+      
     } catch (err) {
       setServerError("Usuario o contraseña incorrectos");
     } finally {

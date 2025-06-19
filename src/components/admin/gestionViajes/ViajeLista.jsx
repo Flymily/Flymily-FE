@@ -11,14 +11,14 @@ const ViajeLista = ({ onEdit, reload }) => {
     try {
       const res = await getAllViajes();
 
-      // Verifica si es un array directo o viene dentro de una propiedad
+    
       const data = res.data;
       const lista = Array.isArray(data) ? data : data.viajes || [];
 
       setViajes(lista);
     } catch (err) {
       console.error('❌ Error al obtener viajes', err);
-      setViajes([]); // Previene crash si hay error
+      setViajes([]); 
     }
   };
 

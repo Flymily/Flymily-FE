@@ -1,4 +1,13 @@
 import axios from 'axios';
+export const authRequest = async (username, password) => {
+  const encoded = btoa(`${username}:${password}`);
+  const res = await fetch("/api/auth/login", {
+    method: "GET",
+    headers: {
+      Authorization: `Basic ${encoded}`,
+    },
+    credentials: "include", 
+  });
 
 const BASE_URL = 'http://localhost:8080/api';
 

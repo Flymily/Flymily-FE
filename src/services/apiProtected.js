@@ -7,6 +7,6 @@ export const apiProtected = axios.create({
 
 apiProtected.interceptors.request.use(cfg => {
   const auth = localStorage.getItem('auth');
-  if (auth) cfg.headers.Authorization = `Basic ${auth}`;   // ✅ cabecera SIEMPRE
+  if (auth) cfg.headers.Authorization = `Basic ${auth}`;
   return cfg;
 });
