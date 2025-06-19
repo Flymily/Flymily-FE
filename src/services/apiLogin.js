@@ -6,15 +6,12 @@ const axiosService = axios.create({
   baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-  },
+  }
 });
 
-export const login = async (username, password) => {
+export const login = async (email, contraseña) => {
   try {
-    const response = await axiosService.post('/auth/login', {
-      username,
-      password,
-    });
+    const response = await axiosService.post('/auth/login', { email, contraseña });
     return response.data;
   } catch (error) {
     console.error('Error en login:', error.response?.data || error.message);

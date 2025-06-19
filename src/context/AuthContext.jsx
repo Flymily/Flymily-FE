@@ -1,37 +1,33 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authRequest } from '../services/AuthService';
+import { login as loginRequest } from '../services/AuthService';
 
-const AuthContext = createContext(null);   // ✅ sin “!!”
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    Boolean(localStorage.getItem('auth')),
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setIsAuthenticated(Boolean(localStorage.getItem('auth')));
-  }, []);
-
-  const login = async (user, pass) => {
-    try {
-      await authRequest(user, pass);
-      setIsAuthenticated(true);
-      navigate('/admin');
-    } catch {
-      alert('Usuario o contraseña incorrectos');
-    }
-  };
+const login = async (username, password) => {
+  try {
+    const userData = await loginRequest(username, password);
+    setIsAuthenticated(true);
+    setUser(userData);
+    navigate('/admin');
+  } catch (error) {
+    alert('Usuario o contraseña incorrectos');
+  }
+};
 
   const logout = () => {
-    localStorage.removeItem('auth');
     setIsAuthenticated(false);
+    setUser(null);
     navigate('/');
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
