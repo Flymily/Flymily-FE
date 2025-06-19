@@ -5,7 +5,7 @@ import { FaPlaneDeparture, FaCalendarAlt, FaUsers, FaPlus, FaSave } from 'react-
 import { createViaje } from '../../../services/viajes.js';
 import axios from 'axios';
 
-const ViajeFormulario = ({ viajeEditando, onSuccess }) => {
+const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
   const {
     register,
     handleSubmit,
@@ -178,9 +178,20 @@ const ViajeFormulario = ({ viajeEditando, onSuccess }) => {
         </label>
       </fieldset>
 
-      <button type="submit" className={styles.boton}>
-        {viajeEditando ? <><FaSave /> Guardar cambios</> : <><FaPlus /> Publicar viaje</>}
-      </button>
+      <div className={styles.botonesAccion}>
+        <button type="submit" className={styles.boton}>
+            {viajeEditando ? <><FaSave /> Guardar cambios</> : <><FaPlus /> Publicar viaje</>}
+        </button>
+          {viajeEditando && (
+            <button type="button" className={styles.cancelar} onClick={() => {
+              reset();
+              onSuccess();
+            }}
+              >
+                <span className={styles.iconoCancelar}>✖</span> Cancelar edición
+            </button>
+          )}
+        </div>
     </form>
   );
 };
