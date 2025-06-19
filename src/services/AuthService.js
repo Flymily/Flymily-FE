@@ -8,7 +8,7 @@ export const authRequest = async (username, password) => {
     },
     credentials: "include", 
   });
-
+}
 const BASE_URL = 'http://localhost:8080/api';
 
 const axiosService = axios.create({
