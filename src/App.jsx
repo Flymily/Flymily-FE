@@ -12,6 +12,7 @@ import LoginPage from './pages/login/Login';
 import Footer from './components/footer/Footer';
 import QuienesSomos from './pages/quienesSomos/QuienesSomos';
 import PrivateRoute from './components/PrivateRoute'; 
+import RecomendacionesViaje from './components/recomendaciones-viaje/RecomendacionesViaje';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/quienes-somos" element={<QuienesSomos />} />
         <Route path="/admin/*" element={<PrivateRoute><Admin /></PrivateRoute>}/>
+        <Route path="/recomendaciones" element={<RecomendacionesViaje />} />
       </Routes>
       <Footer />
     </>

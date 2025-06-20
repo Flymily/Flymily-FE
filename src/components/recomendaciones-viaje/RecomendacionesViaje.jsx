@@ -51,7 +51,7 @@ export default function RecomendacionesViaje() {
   const [categoriaActiva, setCategoriaActiva] = useState(null);
 
   return (
-    <section className={styles.recomendaciones}>
+    <section className={styles.recomendaciones} data-testid="recomendaciones-viaje">
       <h2>Tips & Herramientas, para hacerlo fácil</h2>
       <p className={styles.subtitulo}>Según tu viaje no olvides llevarte...</p>
 
