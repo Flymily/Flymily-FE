@@ -17,7 +17,7 @@ const Admin = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  if (!isAuthenticated) return null; // evita parpadeos
+  if (!isAuthenticated) return null;
 
   return (
     <main className={styles.adminPage}>

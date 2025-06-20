@@ -50,7 +50,7 @@ const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
       };
 
       if (viajeEditando) {
-        await axios.put('/api/viajes/${viajeEditando.id}', viajeData);
+        await axios.put(`/api/viajes/${viajeEditando.id}`, viajeData);
       } else {
         await createViaje(
           viajeData,

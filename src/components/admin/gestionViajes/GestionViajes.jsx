@@ -16,9 +16,10 @@ return (
   <div className={styles.panel}>
     <div className={styles.contenido}>
       <ViajeFormulario viajeEditando={viajeEditando} onSuccess={manejarRecarga} />
-      <ViajeLista onEdit={setViajeEditando} reload={reload} />
+      <ViajeLista onEdit={setViajeEditando} reload={reload} esAdmin={true} />
     </div>
   </div>
+  
   );
 }
 export default GestionViajes;

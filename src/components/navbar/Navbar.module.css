@@ -124,6 +124,15 @@
     hue-rotate(71deg) brightness(93%) contrast(87%);
 }
 
+.logoutButton {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
 
 @media screen and (max-width: 768px) {
   .navLinks {

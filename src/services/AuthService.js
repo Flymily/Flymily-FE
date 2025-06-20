@@ -1,4 +1,6 @@
 import axios from 'axios';
+
+
 export const authRequest = async (username, password) => {
   const encoded = btoa(`${username}:${password}`);
   const res = await fetch("/api/auth/login", {
@@ -16,6 +18,7 @@ const axiosService = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true
 });
 
 export const login = async (username, password) => {
@@ -29,4 +32,21 @@ export const login = async (username, password) => {
     console.error('Error en login:', error.response?.data || error.message);
     throw error;
   }
+}
+export const loginRequest = async (username, password) => {
+  const encoded = btoa(`${username}:${password}`);
+  console.log("✅ Usuario logueado:", res.data);
+  const res = await fetch('/api/auth/login', {
+    method: 'GET',
+    headers: { Authorization: `Basic ${encoded}` },
+    credentials: 'include'
+  });
+
+  if (!res.ok) throw new Error('Credenciales incorrectas');
+  return res.data;
+  
 };
+
+export const logoutRequest = () => {
+  return axiosService.post('/auth/logout');
+}

@@ -28,15 +28,13 @@ const ModalViaje = ({ viaje, onClose }) => {
 
         <div className={styles.detalle}>
           <p><strong>Número de adultos:</strong> {viaje.numAdultos}</p>
-          <p><strong>Fecha de ida:</strong> {viaje.fechaDelda}</p>
+          <p><strong>Fecha de ida:</strong> {viaje.fechaDeIda}</p>
           <p><strong>Número de niños:</strong> {viaje.numNinos}</p>
           <p><strong>Fecha de vuelta:</strong> {viaje.fechaDeVuelta}</p>
           <p><strong>Salida:</strong> {ciudadSalida}, {paisSalida}</p>
           <p><strong>Presupuesto:</strong> {viaje.presupuesto} €</p>
-
           <p><strong>Destino:</strong> {ciudadDestino}, {paisDestino}</p>
           <p><strong>Grupo o privado:</strong>{" "}{viaje.grupoOPrivado ? "Grupo" : "Privado"}</p>
-
           <p><strong>Accesible movilidad reducida:</strong>{" "}{viaje.discapacidadMovilRed ? "Sí" : "No"}</p>
           <p><strong>Organizado o a medida:</strong>{" "}{viaje.organizadoOMedida ? "A medida" : "Organizado"}</p>
           <p><strong>Tipo de viaje:</strong> {viaje.tipoViaje || "No disponible"}</p>

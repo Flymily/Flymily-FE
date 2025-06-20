@@ -3,11 +3,12 @@ import { getAllViajes } from '../../../services/viajes';
 import styles from './viajeLista.module.css';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
-import ConfirmDialog from '../../ui/ConfirmDialog'; // 👈 nuevo import
+import ConfirmDialog from '../../ui/ConfirmDialog'; 
 
-const ViajeLista = ({ onEdit, reload }) => {
+
+const ViajeLista = ({ onEdit, reload, esAdmin}) => {
   const [viajes, setViajes] = useState([]);
-  const [idAEliminar, setIdAEliminar] = useState(null); // 👈
+  const [idAEliminar, setIdAEliminar] = useState(null);
 
   const cargarViajes = async () => {
     try {
@@ -50,7 +51,9 @@ const ViajeLista = ({ onEdit, reload }) => {
               <h3>{viaje.title}</h3>
               <p><strong>Destino:</strong> {viaje.ciudadDestino}, {viaje.paisDestino}</p>
               <p><strong>Salida:</strong> {viaje.ciudadSalida} - {viaje.fechaDeIda}</p>
-              <p><strong>Agencia:</strong> {viaje.agencia}</p>
+              {esAdmin && (
+                <p><strong>Agencia:</strong> {viaje.agencia}</p>
+              )}
               <div className={styles.botones}>
                 <button onClick={() => onEdit(viaje)}>
                   <FaEdit /> Editar
