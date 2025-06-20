@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import { getAllViajes } from '../../../services/viajes';
+import { getAllViajes } from '../../../services/viajes'; 
 import styles from './viajeLista.module.css';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
-import ConfirmDialog from '../../ui/ConfirmDialog'; 
+import ConfirmDialog from '../../ui/ConfirmDialog';
 
-
-const ViajeLista = ({ onEdit, reload, esAdmin}) => {
+const ViajeLista = ({ onEdit, reload, esAdmin }) => {
   const [viajes, setViajes] = useState([]);
   const [idAEliminar, setIdAEliminar] = useState(null);
 
@@ -16,6 +15,7 @@ const ViajeLista = ({ onEdit, reload, esAdmin}) => {
       const data = res.data;
       const lista = Array.isArray(data) ? data : data.viajes || [];
       setViajes(lista);
+      console.log("✅ Viajes cargados:", lista);
     } catch (err) {
       console.error('❌ Error al obtener viajes', err);
       setViajes([]);
