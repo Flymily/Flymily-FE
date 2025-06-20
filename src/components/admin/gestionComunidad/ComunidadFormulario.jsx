@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import styles from './ComunidadFormulario.module.css';
 import { FaSave, FaPlus, FaTrash } from 'react-icons/fa';
-import axios from 'axios';
+import { updateFormApi } from '../../../services/updateFormApi';
 
 const ComunidadFormulario = ({ postEditando, onSuccess }) => {
   const {
@@ -30,11 +30,11 @@ const ComunidadFormulario = ({ postEditando, onSuccess }) => {
   const onSubmit = async (data) => {
     try {
       setLoading(true);
-      if (postEditando) {
-        await axios.put(`http://localhost:8080/api/posts-comunidad/auth/update/${postEditando.id}`, data);
-      } else {
-        await axios.post('http://localhost:8080/api/posts-comunidad/auth/create', data);
-      }
+    if (postEditando) {
+      await updateFormApi(postEditando.id, data);
+    } else {
+      await axios.post('/api/posts-comunidad/auth/create', data, { withCredentials: true });
+    }
       reset();
       onSuccess();
       alert('✅ ¡Post guardado correctamente!');
