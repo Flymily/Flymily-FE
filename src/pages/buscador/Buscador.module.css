@@ -1,227 +1,191 @@
-.titulo {
-    text-align: center;
-    font-size: 2rem;
+.buscadorContainer {
+  padding: 2rem;
+  background-color: #f8f9fa;
 }
+
 .formulario {
-    background-color: #f7efe6;
-    border-radius: 1.5rem;
-    padding: 2rem;
-    max-width: 1355px;
-    margin: 4rem auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    font-family: 'Montserrat Alternates', sans-serif;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
 }
-  
-.filaPrincipal {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-}
-  
-.filaPrincipal select,
-.filaPrincipal input,
-.filaPrincipal .react-datepicker-wrapper {
-  border: none;
-  border-radius: 2rem;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  min-width: 140px;
-  max-width: 200px;
-  flex: 1 1 auto;
+
+.titulo {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  font-family: 'Montserrat Alternates', sans-serif;
+  color: #2c3e50;
 }
-  
-.selectInput {
-    appearance: none;
-    background-color: white;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-family: 'Montserrat Alternates', sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    min-width: 180px;
-}
-  
-.personasEdad {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: center;
-    justify-content: center;
-}
-  
-.personasEdad div {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-  
-.personasEdad button {
-    background-color: #a3c9a8;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 999px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-  
-.edadesWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-}
-.edadesWrapper label {
-    font-weight: 400;
-    font-size: 1rem;
-    color: #1d3b2a;
-    font-family: 'Montserrat Alternates', sans-serif;
-  
-}
-.edadesInput {
-    appearance: none;
-    background-color: white;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-family: 'Montserrat Alternates', sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 70px;
-}
-  
-.advancedToggle {
-    background-color: #a3c9a8;
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    font-size: 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    font-weight: bold;
-    align-self: center;
-}
-  
-.filtrosAvanzados {
-    background-color: #f7efe6;
-    padding: 1.5rem;
-    border-radius: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
-}
-  
-.filtrosAvanzados select,
-.filtrosAvanzados input {
-    border: none;
-    border-radius: 2rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    min-width: 180px;
-    text-align: center;
-    font-family: 'Montserrat Alternates', sans-serif;
-}
-  
-.filtrosAvanzados label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: 400;
-    color: #1d3b2a;
-    font-family: 'Montserrat Alternates', sans-serif;
-}
-input[type="number"] {
-    -moz-appearance: textfield;
-  
-}
-  
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  
-}
-.botonBuscar {
-    background-color: #4caf8e;
-    color: white;
-    border: none;
-    padding: 0.9rem 2.5rem;
-    font-size: 1.1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    font-family: 'Montserrat Alternates', sans-serif;
-    transition: background-color 0.3s ease;
-    align-self: center;
-    margin-top: 1.5rem;
-  }
-  
-  .botonBuscar:hover {
-    background-color: #3b8b74;
-  }
 
-  .inputGroup {
+.filaPrincipal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.inputGroup {
   position: relative;
-  width: 100%;
-  max-width: 200px;
-}
-
-.inputWithIcon {
-  width: 100%;
-  padding: 0.8rem 1rem 0.8rem 2.5rem; 
-  border: none;
-  border-radius: 2rem;
-  background-color: white;
-  font-size: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Montserrat Alternates', sans-serif;
-  text-align: left;
-  
+  flex: 1 1 180px;
 }
 
 .iconInside {
   position: absolute;
   top: 50%;
-  left: 1rem;
+  left: 10px;
   transform: translateY(-50%);
-  font-size: 1rem;
-  color: #666;
-  pointer-events: none;
+  color: #888;
 }
 
-  
-@media (max-width: 768px) {
-    .filaPrincipal,
-    .filtrosAvanzados,
-    .personasEdad {
-      flex-direction: column;
-      align-items: stretch;
-      align-items: center;
+.inputWithIcon {
+  width: 100%;
+  padding: 0.6rem 0.6rem 0.6rem 2.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
 
-    }
-  
-    .filaPrincipal select,
-    .filaPrincipal input,
-    .react-datepicker-wrapper,
-    .filtrosAvanzados select,
-    .filtrosAvanzados input {
-      width: 100%;
-    }
+.personasEdad {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.counter label {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.counter button {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.counter button:hover {
+  background-color: #0056b3;
+}
+
+.edadesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.edadesInput {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.advancedToggle {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.selectInput {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 1rem;
+}
+
+.filtrosAvanzados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.botonBuscar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: auto;
+}
+
+.botonBuscar:hover {
+  background-color: #218838;
+}
+
+/* Estilos de la lista de resultados */
+
+.lista {
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.imagen {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin: 1rem;
+  color: #2c3e50;
+}
+
+.card p {
+  margin: 0 1rem 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
 }
