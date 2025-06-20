@@ -3,6 +3,7 @@ import { getContenidoComunidad } from '../../../services/comunidad.js';
 import styles from './ComunidadLista.module.css';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import ConfirmDialog from '../../ui/ConfirmDialog';
+import { createFormApi, updateFormApi, deleteFormApi } from '../../../services/comunidadAdminApi.js';
 
 const ComunidadLista = ({ onEdit, reload, esAdmin }) => {
   const [posts, setPosts] = useState([]);
@@ -26,8 +27,7 @@ const ComunidadLista = ({ onEdit, reload, esAdmin }) => {
 
   const confirmarEliminar = async () => {
     try {
-
-      await axios.delete(`/posts-comunidad/${idAEliminar}`);
+      await deleteFormApi(idAEliminar);
       setIdAEliminar(null);
       cargarPosts();
     } catch (err) {

@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import styles from './ComunidadFormulario.module.css';
 import { FaSave, FaPlus, FaTrash } from 'react-icons/fa';
-import { updateFormApi } from '../../../services/updateFormApi';
+import { createFormApi, updateFormApi, deleteFormApi } from '../../../services/comunidadAdminApi.js';
 
 const ComunidadFormulario = ({ postEditando, onSuccess }) => {
   const {
@@ -27,40 +27,41 @@ const ComunidadFormulario = ({ postEditando, onSuccess }) => {
     }
   }, [postEditando]);
 
-  const onSubmit = async (data) => {
-    try {
-      setLoading(true);
+const onSubmit = async (data) => {
+  try {
+    setLoading(true);
     if (postEditando) {
       await updateFormApi(postEditando.id, data);
     } else {
-      await axios.post('/api/posts-comunidad/auth/create', data, { withCredentials: true });
+      await createFormApi(data);
     }
-      reset();
-      onSuccess();
-      alert('✅ ¡Post guardado correctamente!');
-    } catch (error) {
-      console.error('❌ Error al guardar el post', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    reset();
+    onSuccess();
+    alert('✅ ¡Post guardado correctamente!');
+  } catch (error) {
+    console.error('❌ Error al guardar el post', error);
+  } finally {
+    setLoading(false);
+  }
+};
 
-  const handleDelete = async () => {
-    if (!postEditando) return;
-    const confirmacion = window.confirm("¿Seguro que deseas eliminar este post?");
-    if (!confirmacion) return;
-    try {
-      setLoading(true);
-      await axios.delete(`http://localhost:8080/api/posts-comunidad/auth/delete/${postEditando.id}`);
-      reset();
-      onSuccess();
-      alert('🗑️ Post eliminado correctamente');
-    } catch (error) {
-      console.error('❌ Error al eliminar el post', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+const handleDelete = async () => {
+  if (!postEditando) return;
+  const confirmacion = window.confirm("¿Seguro que deseas eliminar este post?");
+  if (!confirmacion) return;
+  try {
+    setLoading(true);
+    await deleteFormApi(postEditando.id);
+    reset();
+    onSuccess();
+    alert('🗑️ Post eliminado correctamente');
+  } catch (error) {
+    console.error('❌ Error al eliminar el post', error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
