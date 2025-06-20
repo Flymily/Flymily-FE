@@ -1,9 +1,11 @@
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import styles from './viajeFormulario.module.css';
-import { FaPlaneDeparture, FaCalendarAlt, FaUsers, FaPlus, FaSave } from 'react-icons/fa';
+import { FaCalendarAlt, FaUsers, FaPlus, FaSave } from 'react-icons/fa';
 import { createViaje } from '../../../services/viajes.js';
 import axios from 'axios';
+
+
 
 const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
   const {
@@ -14,7 +16,8 @@ const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
     watch,
     formState: { errors },
   } = useForm();
-
+  
+  const [loading, setLoading] = useState(false);
   const imgPreview = watch('imgPath');
 
   useEffect(() => {
@@ -29,6 +32,8 @@ const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
+
       const edadesConvertidas = data.edadesNinos
         ? data.edadesNinos.split(',').map((e) => parseInt(e.trim()))
         : [];
@@ -45,7 +50,7 @@ const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
       };
 
       if (viajeEditando) {
-        await axios.put(`/api/viajes/${viajeEditando.id}`, viajeData);
+        await axios.put('/api/viajes/${viajeEditando.id}', viajeData);
       } else {
         await createViaje(
           viajeData,
@@ -56,13 +61,16 @@ const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
           data.tipoViaje,
           data.transporte
         );
+        
       }
-
       reset();
-      onSuccess();
-    } catch (error) {
-      console.error('❌ Error al guardar el viaje', error);
-    }
+    onSuccess();
+    alert('✅ ¡Viaje creado con éxito!');
+  } catch (error) {
+    console.error('❌ Error al guardar el viaje', error);
+  } finally {
+    setLoading(false);
+  }
   };
 
   return (
@@ -179,19 +187,28 @@ const ViajeFormulario = ({ viajeEditando, onSuccess, onCancelEdit }) => {
       </fieldset>
 
       <div className={styles.botonesAccion}>
-        <button type="submit" className={styles.boton}>
-            {viajeEditando ? <><FaSave /> Guardar cambios</> : <><FaPlus /> Publicar viaje</>}
-        </button>
-          {viajeEditando && (
-            <button type="button" className={styles.cancelar} onClick={() => {
-              reset();
-              onSuccess();
-            }}
-              >
-                <span className={styles.iconoCancelar}>✖</span> Cancelar edición
+        {loading ? (
+          <span className={styles.loader}></span>
+        ) : (
+        <>
+            <button type="submit" className={styles.boton}>
+                {viajeEditando ? <><FaSave /> Guardar cambios</> : <><FaPlus /> Publicar viaje</>}
             </button>
+          {viajeEditando && (
+          <button
+            type="button"
+            className={styles.cancelar}
+              onClick={() => {
+                reset();
+                onSuccess();
+              }}
+            >
+              <span className={styles.iconoCancelar}>✖</span> Cancelar edición
+          </button>
           )}
-        </div>
+          </>
+        )}
+      </div>
     </form>
   );
 };
