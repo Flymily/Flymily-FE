@@ -3,7 +3,7 @@ import Navbar from './components/navbar/Navbar';
 
 import Home from './pages/home/Home';
 import Viajes from './pages/viajes/Viajes';
-import Buscador from './pages/buscador/Buscador';
+import BuscadorPagina from './pages/buscador/buscadorPagina.jsx';
 import Comunidad from './pages/comunidad/Comunidad';
 import Contacto from './pages/contacto/Contacto';
 import Admin from './pages/admin/Admin';
@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/viajes" element={<Viajes />} />
-        <Route path="/buscador" element={<Buscador />} />
+        <Route path="/buscador" element={<BuscadorPagina />} />
         <Route path="/comunidad" element={<Comunidad />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/admin" element={<Admin />} />

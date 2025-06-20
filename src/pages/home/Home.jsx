@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import sliderData from "../../assets/data/sliderData";
-import Buscador from "../buscador/Buscador";
+import Buscador from "../../components/buscador/Buscador";
 import SuscripcionModal from "../../components/boton-suscripcion/SuscripcionModal";
 
 import styles from "./Home.module.css";
