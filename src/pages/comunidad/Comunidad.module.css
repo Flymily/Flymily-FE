@@ -8,7 +8,7 @@
 .titulo {
   font-size: 2.5rem;
   font-family: "Montserrat Alternates", sans-serif;
-  color: #2f6846;
+  color: #4a8b61;
   margin-bottom: 1rem;
 }
 
@@ -62,11 +62,11 @@
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #2f6846;
+  color: #4a8b61;
 }
 
 .card p {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1rem;
   color: #444;
   line-height: 1.7;

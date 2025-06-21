@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext'; // ajusta el path si es diferente
+import { useAuth } from '../../context/AuthContext';
 import styles from './Admin.module.css';
 import GestionViajes from '../../components/admin/gestionViajes/GestionViajes';
 import GestionComunidad from '../../components/admin/gestionComunidad/GestionComunidad';
-//import GestionFAQ from '../../components/admin/gestionFAQ/GestionFAQ';
+import GestionFAQ from '../../components/admin/gestionFAQ/GestionFAQ';
 import GestionQuienesSomos from '../../components/admin/gestionQuienesSomos/GestionQuienesSomos';
 
 const Admin = () => {
@@ -32,13 +32,12 @@ const Admin = () => {
       </section>
 
       <section id="faq" className={styles.section}>
-        <h2>Preguntas Frecuentes</h2>
-        {/*<GestionFAQ />*/}
+        <GestionFAQ />
       </section>
 
       <section id="quienessomos" className={styles.section}>
         <h2>Quienes Somos</h2>
-        {/*<GestionQuienesSomos />*/}
+        <GestionQuienesSomos />
       </section>
     </main>
   );
