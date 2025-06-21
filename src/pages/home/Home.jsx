@@ -6,9 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import sliderData from "../../assets/data/sliderData";
 import Buscador from "../buscador/Buscador";
 import SuscripcionModal from "../../components/boton-suscripcion/SuscripcionModal";
-
 import styles from "./Home.module.css";
 import RecomendacionesViaje from "../../components/recomendaciones-viaje/RecomendacionesViaje";
+import SliderViajesHome from "../../components/slider-viajes/SliderViajesHome.jsx";
+import SliderComunidadHome from "../../components/slider-comunidad/SliderComunidadHome.jsx";
 
 const Home = () => {
   
@@ -68,6 +69,8 @@ const Home = () => {
       </div>
       <section id="buscador">
         <Buscador />
+        <SliderViajesHome />
+        <SliderComunidadHome />
         <RecomendacionesViaje />
         <SuscripcionModal />
       </section>
