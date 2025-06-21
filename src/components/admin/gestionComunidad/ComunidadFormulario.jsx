@@ -27,41 +27,47 @@ const ComunidadFormulario = ({ postEditando, onSuccess }) => {
     }
   }, [postEditando]);
 
-const onSubmit = async (data) => {
-  try {
-    setLoading(true);
-    if (postEditando) {
-      await updateFormApi(postEditando.id, data);
-    } else {
-      await createFormApi(data);
+  const onSubmit = async (data) => {
+    try {
+      setLoading(true);
+      const postData = {
+        tituloPost: data.tituloPost,
+        contenidoPost: data.contenidoPost,
+        imgPathComunidad: data.imgPathComunidad || "", // si no hay imagen
+      };
+
+      if (postEditando) {
+        await updateFormApi(postEditando.id, postData);
+      } else {
+        await createFormApi(postData);
+      }
+
+      reset();
+      onSuccess();
+      alert('✅ ¡Post guardado correctamente!');
+    } catch (error) {
+      console.error('❌ Error al guardar el post', error);
+    } finally {
+      setLoading(false);
     }
-    reset();
-    onSuccess();
-    alert('✅ ¡Post guardado correctamente!');
-  } catch (error) {
-    console.error('❌ Error al guardar el post', error);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
-const handleDelete = async () => {
-  if (!postEditando) return;
-  const confirmacion = window.confirm("¿Seguro que deseas eliminar este post?");
-  if (!confirmacion) return;
-  try {
-    setLoading(true);
-    await deleteFormApi(postEditando.id);
-    reset();
-    onSuccess();
-    alert('🗑️ Post eliminado correctamente');
-  } catch (error) {
-    console.error('❌ Error al eliminar el post', error);
-  } finally {
-    setLoading(false);
-  }
-};
-
+  const handleDelete = async () => {
+    if (!postEditando) return;
+    const confirmacion = window.confirm("¿Seguro que deseas eliminar este post?");
+    if (!confirmacion) return;
+    try {
+      setLoading(true);
+      await deleteFormApi(postEditando.id);
+      reset();
+      onSuccess();
+      alert('🗑️ Post eliminado correctamente');
+    } catch (error) {
+      console.error('❌ Error al eliminar el post', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -79,11 +85,6 @@ const handleDelete = async () => {
         <label>Contenido</label>
         <textarea {...register('contenidoPost', { required: true })} placeholder="Contenido del post" rows={6} />
         {errors.contenidoPost && <span className={styles.error}>Este campo es obligatorio</span>}
-      </section>
-
-      <section className={styles.grupo}>
-        <label>Autor</label>
-        <input {...register('autor')} placeholder="Nombre del autor/a" />
       </section>
 
       <section className={styles.grupo}>
