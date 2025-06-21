@@ -66,11 +66,18 @@ const Buscador = () => {
       return;
     }
 
+    const formatearFecha = (fecha) => {
+      const year = fecha.getFullYear();
+      const month = String(fecha.getMonth() + 1).padStart(2, "0");
+      const day = String(fecha.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    };
+
     const payload = {
       numAdultos: adultos,
       numNinos: niños,
-      fechaDeIda: startDate.toISOString().split("T")[0],
-      fechaDeVuelta: endDate.toISOString().split("T")[0],
+      fechaDeIda: formatearFecha(startDate),
+      fechaDeVuelta: formatearFecha(endDate),
       tipoViaje,
       paisSalida: paisOrigen.trim().toLowerCase(),
       ciudadSalida: origen.trim().toLowerCase(),
