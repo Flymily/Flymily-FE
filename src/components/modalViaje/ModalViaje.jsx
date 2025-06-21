@@ -15,10 +15,10 @@ const ModalViaje = ({ viaje, onClose }) => {
   const rangos = Array.isArray(viaje.rangosEdad)? viaje.rangosEdad.join(", "): "No especificado";
   console.log(viaje);
   return (
-    <div className={styles.overlay}>
+    <div className={styles.overlay} data-testid="modal-viaje">
       <div className={styles.modal}>
-        <button className={styles.cerrar} onClick={onClose}>
-          ✖
+        <button aria-label="Cerrar" onClick={() => onClose()}>
+          <span className="icon">❌</span>
         </button>
 
         <img src={viaje.imgPath} alt={viaje.title} className={styles.imagen} />

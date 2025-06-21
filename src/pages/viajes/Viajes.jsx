@@ -33,6 +33,7 @@ const Viajes = () => {
           {viajes.map((viaje) => (
             <div
               key={viaje.id}
+              data-testid="card-viaje"
               className={styles.card}
               onClick={() => setViajeSeleccionado(viaje)}
               style={{ cursor: "pointer" }}
