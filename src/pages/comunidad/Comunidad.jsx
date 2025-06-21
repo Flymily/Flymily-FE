@@ -31,13 +31,15 @@ const Comunidad = () => {
           <p>Cargando contenido...</p>
         ) : (
           contenidoComunidad.map((post) => (
-            <div key={post.id} className={styles.card}>
+            <div className={styles.card}>
+            <div className={styles.imagenWrapper}>
               <img src={post.imgPathComunidad} alt={post.tituloPost} className={styles.imagen} />
-              <div className={styles.cardContent}>
-                <h3>{post.tituloPost}</h3>
-                <p>{post.contenidoPost}</p>
-              </div>
             </div>
+            <div className={styles.cardContent}>
+              <h3>{post.tituloPost}</h3>
+              <p>{post.contenidoPost}</p>
+            </div>
+          </div>
           ))
         )}
       </div>
