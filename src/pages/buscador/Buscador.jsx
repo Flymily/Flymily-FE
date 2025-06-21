@@ -98,7 +98,7 @@ const Buscador = () => {
           <div className={styles.inputGroup}>
             <FaSuitcaseRolling className={styles.iconInside} />
             <select
-              className={styles.inputWithIcon}
+              className={styles.selectBonito}
               value={tipoViaje}
               onChange={(e) => setTipoViaje(e.target.value)}
             >
@@ -197,20 +197,19 @@ const Buscador = () => {
           <div className={styles.edadesWrapper}>
             <label>Edades:</label>
             {Array.from({ length: niños }, (_, i) => (
-              <select
-                key={i}
-                value={edades[i] || 0}
-                onChange={(e) => {
-                  const nuevasEdades = [...edades];
-                  nuevasEdades[i] = parseInt(e.target.value);
-                  setEdades(nuevasEdades);
-                }}
-                className={styles.edadesInput}
-              >
-                {Array.from({ length: 18 }, (_, j) => (
-                  <option key={j} value={j}>{j}</option>
-                ))}
-              </select>
+              <input
+              key={i}
+              type="number"
+              min="0"
+              max="17"
+              value={edades[i] || 0}
+              onChange={(e) => {
+                const nuevasEdades = [...edades];
+                nuevasEdades[i] = parseInt(e.target.value);
+                setEdades(nuevasEdades);
+              }}
+              className={styles.edadesInput}
+            />
             ))}
           </div>
         )}
