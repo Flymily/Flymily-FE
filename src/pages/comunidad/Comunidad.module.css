@@ -1,71 +1,62 @@
 .comunidadContainer {
   background-color: #f7efe6;
-  padding: 3rem 2rem;
+  padding: 3rem 1.5rem;
   text-align: center;
   min-height: 100vh;
 }
 
 .titulo {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: "Montserrat Alternates", sans-serif;
   color: #2f6846;
   margin-bottom: 1rem;
 }
 
 .descripcion {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #444;
   max-width: 700px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 2rem auto;
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
 }
 
 .gridGaleria {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  width: 100%;
-  align-items: center;
+  justify-items: center;
 }
 
 .card {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   background: white;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  max-width: 1200px;
-  width: 95%;
-  gap: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
   text-align: left;
 }
 
-.card img {
-  width: 350px;
-  height: 240px;
-  border-radius: 1rem;
+.imagen {
+  width: 100%;
+  height: 200px;
   object-fit: cover;
-  flex-shrink: 0;
 }
 
 .cardContent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 1.5rem;
 }
 
-.card h3 {
+.cardContent h3 {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
   color: #2f6846;
 }
 
-.card p {
+.cardContent p {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   color: #444;
