@@ -15,7 +15,7 @@ const ViajeLista = ({ onEdit, reload, esAdmin }) => {
       const data = res.data;
       const lista = Array.isArray(data) ? data : data.viajes || [];
       setViajes(lista);
-      console.log("✅ Viajes cargados:", lista);
+
     } catch (err) {
       console.error('❌ Error al obtener viajes', err);
       setViajes([]);

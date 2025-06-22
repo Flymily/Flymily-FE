@@ -11,8 +11,6 @@ const Viajes = () => {
     const fetchViajes = async () => {
       try {
         const response = await getAllViajesPublicos();
-        console.log("Viajes desde la API:", response.data);
-        console.log("✳️ Viajes recibidos:", response.data);
         setViajes(response.data);
       } catch (error) {
         console.error("❌ Error al cargar viajes:", error);

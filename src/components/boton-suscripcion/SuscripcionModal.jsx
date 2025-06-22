@@ -14,7 +14,6 @@ const SuscripcionModal = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     setSuscrito(true);
     reset();
     setTimeout(() => {

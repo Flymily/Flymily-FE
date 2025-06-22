@@ -30,8 +30,6 @@ const Contacto = () => {
         mensaje: sanitizeInput(data.mensaje),
       };
 
-      console.log('Datos enviados:', sanitizedData);
-
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       setEnviado(true);

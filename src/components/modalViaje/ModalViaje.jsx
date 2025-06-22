@@ -14,7 +14,7 @@ const ModalViaje = ({ viaje, onClose }) => {
   const tipoV = viaje.tipoViaje ?? "No disponible";
   const tipoT = viaje.transporte ?? "No disponible";
   const rangos = Array.isArray(viaje.rangosEdad)? viaje.rangosEdad.join(", "): "No especificado";
-  console.log(viaje);
+
   return (
     <div className={styles.overlay} data-testid="modal-viaje">
       <div className={styles.modal}>

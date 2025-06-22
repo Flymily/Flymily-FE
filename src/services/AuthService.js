@@ -35,7 +35,6 @@ export const login = async (username, password) => {
 }
 export const loginRequest = async (username, password) => {
   const encoded = btoa(`${username}:${password}`);
-  console.log("✅ Usuario logueado:", res.data);
   const res = await fetch('/api/auth/login', {
     method: 'GET',
     headers: { Authorization: `Basic ${encoded}` },

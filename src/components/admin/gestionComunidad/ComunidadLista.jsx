@@ -14,7 +14,6 @@ const ComunidadLista = ({ onEdit, reload, esAdmin }) => {
       const res = await getContenidoComunidad();
       const data = res.data;
       setPosts(Array.isArray(data) ? data : []);
-      console.log("✅ Posts comunidad gestion:", data);
     } catch (err) {
       console.error('❌ Error al obtener los posts de comunidad', err);
       setPosts([]);
