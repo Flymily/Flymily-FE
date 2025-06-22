@@ -1,0 +1,117 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 50px;
+  color: grey;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+.imagen {
+  width: 90%;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+}
+
+.titulo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  
+  color: #5A8F68; 
+  
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #444;
+}
+
+.detalle {
+  text-align: left;
+  font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2rem;
+  margin-top: 1.5rem;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #444;
+}
+
+.detalle p {
+  margin: 0;
+}
+
+.detalle strong {
+  color: #518258;
+  font-weight: 600;
+}
+
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cerrar:hover {
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+  }
+}

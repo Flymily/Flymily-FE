@@ -1,30 +1,23 @@
-import { useState } from "react";
-import styles from "./GestionComunidad.module.css";
+import { useState } from 'react';
+import ComunidadFormulario from './ComunidadFormulario';
+import ComunidadLista from './ComunidadLista';
+import styles from './GestionComunidad.module.css';
 
 const GestionComunidad = () => {
-  const [contenido, setContenido] = useState("Nuestra comunidad");
+  const [postEditando, setPostEditando] = useState(null);
+  const [reload, setReload] = useState(false);
 
-  const handleChange = (e) => {
-    setContenido(e.target.value);
-  };
-
-  const handleSave = () => {
-    
-    console.log("Guardado:", contenido);
+  const manejarRecarga = () => {
+    setReload(!reload);
+    setPostEditando(null);
   };
 
   return (
-    <div className={styles.wrapper}>
-      <h3>Editar título o contenido de la comunidad</h3>
-      <textarea
-        value={contenido}
-        onChange={handleChange}
-        rows={6}
-        className={styles.textarea}
-      />
-      <button onClick={handleSave} className={styles.botonGuardar}>
-        Guardar cambios
-      </button>
+    <div className={styles.panel}>
+      <div className={styles.contenido}>
+        <ComunidadFormulario postEditando={postEditando} onSuccess={manejarRecarga} />
+        <ComunidadLista onEdit={setPostEditando} reload={reload} esAdmin={true} />
+      </div>
     </div>
   );
 };

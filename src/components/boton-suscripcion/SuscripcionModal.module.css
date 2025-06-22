@@ -1,6 +1,6 @@
 .abrirBtn {
   background-color: #a3c9a8;
-  color: black;
+  color: #f8f9f8;
   font-weight: bold;
   font-size: 1rem;
   padding: 0.8rem 1.5rem;
@@ -13,6 +13,12 @@
 
 .abrirBtn:hover {
   background-color: #8abf98;
+}
+
+.botonWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 3rem auto;
 }
 
 .modalOverlay {

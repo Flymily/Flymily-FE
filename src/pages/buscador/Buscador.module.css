@@ -1,193 +1,213 @@
-.formulario {
-    background-color: #f7efe6;
-    border-radius: 1.5rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 4rem auto;
+.buscadorContainer {
+    padding: 3rem 1rem;
+    background-color: #f8f1e9;
+    margin: 3rem auto;
+  }
+  
+  .formulario {
+    background: transparent;
+    padding: 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    font-family: 'Montserrat Alternates', sans-serif;
-}
+    align-items: center;
+  }
   
-.filaPrincipal {
+  .titulo {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2c3e50;
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+  
+  .filaPrincipal {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    align-items: center;
     justify-content: center;
-}
+    margin-bottom: 1.5rem;
+  }
   
-.filaPrincipal select,
-.filaPrincipal input,
-.filaPrincipal .react-datepicker-wrapper {
-  border: none;
-  border-radius: 2rem;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  min-width: 140px;
-  max-width: 200px;
-  flex: 1 1 auto;
-  text-align: center;
-  font-family: 'Montserrat Alternates', sans-serif;
-}
+  .inputGroup {
+    position: relative;
+    flex: 1 1 180px;
+    max-width: 250px;
+  }
   
-.selectInput {
-    appearance: none;
+  .iconInside {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+  }
+  
+  .inputWithIcon {
+    width: 100%;
+    padding: 0.6rem 0.6rem 0.6rem 2.2rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
     background-color: white;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-family: 'Montserrat Alternates', sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    min-width: 180px;
-}
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
   
-.personasEdad {
+  .personasEdad {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: center;
+    gap: 3rem;
+    margin-bottom: 1rem;
     justify-content: center;
-}
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
   
-.personasEdad div {
+  .counter {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-}
+    gap: 0.6rem;
+  }
   
-.personasEdad button {
-    background-color: #a3c9a8;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 999px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-  
-.edadesWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-}
-.edadesWrapper label {
-    font-weight: 400;
-    font-size: 1rem;
-    color: #1d3b2a;
-    font-family: 'Montserrat Alternates', sans-serif;
-  
-}
-.edadesInput {
-    appearance: none;
-    background-color: white;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-family: 'Montserrat Alternates', sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 70px;
-}
-  
-.advancedToggle {
-    background-color: #a3c9a8;
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    font-size: 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
+  .counter label {
     font-weight: bold;
-    align-self: center;
-}
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
   
-.filtrosAvanzados {
-    background-color: #f7efe6;
-    padding: 1.5rem;
-    border-radius: 2rem;
+  .counter button {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #99c7a5;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .counter button:hover {
+    background-color: #6fa180;
+  }
+  
+  .edadesWrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
+    gap: 0.5rem;
     align-items: center;
-}
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
   
-.filtrosAvanzados select,
-.filtrosAvanzados input {
-    border: none;
-    border-radius: 2rem;
-    padding: 0.8rem 1.5rem;
+  .edadesInput {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 3.5rem;
     font-size: 1rem;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    min-width: 180px;
     text-align: center;
     font-family: 'Montserrat Alternates', sans-serif;
-}
+  }
   
-.filtrosAvanzados label {
+  .advancedToggle {
+    background: #bde1c4;
+    border: none;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    font-weight: 400;
-    color: #1d3b2a;
-    font-family: 'Montserrat Alternates', sans-serif;
-}
-input[type="number"] {
-    -moz-appearance: textfield;
+    gap: 0.4rem;
+  }
   
-}
+  .selectInput {
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 220px;
+    margin-bottom: 1rem;
+  }
   
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  
-}
-.botonBuscar {
-    background-color: #4caf8e;
+  .botonBuscar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #48b187;
     color: white;
     border: none;
-    padding: 0.9rem 2.5rem;
+    padding: 0.9rem 2rem;
     font-size: 1.1rem;
     border-radius: 2rem;
     cursor: pointer;
     font-family: 'Montserrat Alternates', sans-serif;
     transition: background-color 0.3s ease;
-    align-self: center;
-    margin-top: 1.5rem;
   }
   
   .botonBuscar:hover {
     background-color: #3b8b74;
   }
-  
-@media (max-width: 768px) {
-    .filaPrincipal,
-    .filtrosAvanzados,
-    .personasEdad {
-      flex-direction: column;
-      align-items: stretch;
-      align-items: center;
 
-    }
+
+.selectBonito {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    font-family: 'Montserrat Alternates', sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    width: 100%;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    cursor: pointer;
+  }
   
-    .filaPrincipal select,
-    .filaPrincipal input,
-    .react-datepicker-wrapper,
-    .filtrosAvanzados select,
-    .filtrosAvanzados input {
-      width: 100%;
-    }
-}
+  .selectBonito:focus {
+    outline: none;
+    border-color: #8ecaae;
+    box-shadow: 0 0 0 3px rgba(142, 202, 174, 0.3);
+  }
+  .filtrosAvanzados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .filtrosAvanzados select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    font-family: 'Montserrat Alternates', sans-serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 250px;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .filtrosAvanzados select:focus {
+    outline: none;
+    border-color: #8ecaae;
+    box-shadow: 0 0 0 3px rgba(142, 202, 174, 0.3);
+  }

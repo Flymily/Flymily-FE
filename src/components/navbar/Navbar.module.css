@@ -66,7 +66,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 40%;
   height: 100vh;
   background-color: #d8ebd8;
   padding: 2rem;
@@ -122,6 +122,15 @@
   cursor: pointer;
   filter: brightness(0) saturate(100%) invert(20%) sepia(13%) saturate(542%)
     hue-rotate(71deg) brightness(93%) contrast(87%);
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
 }
 
 
