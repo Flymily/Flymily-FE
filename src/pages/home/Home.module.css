@@ -21,7 +21,7 @@
 .centeredText {
   font-family: "Montserrat Alternates", sans-serif;
   color: #fff;
-  font-size: 5rem;
+  font-size: 3.5rem;
   text-align: center;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
@@ -60,6 +60,18 @@
 
 .active {
   animation: fill 9s linear forwards;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
 }
 
 

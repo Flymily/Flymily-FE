@@ -5,13 +5,23 @@
   margin: 0;
   padding: 0;
 }
+html, body, #root {
+  height: 100%;
+}
 
-html, body {
+body {
   width: 100%;
   min-height: 100vh;
   font-family: 'Montserrat Alternates', sans-serif;
   background-color: white;
   color: #000;
+}
+
+
+.appLayout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -26,4 +36,5 @@ html, body {
 .slick-slide {
   font-family: 'Montserrat Alternates', sans-serif;
 }
+
 

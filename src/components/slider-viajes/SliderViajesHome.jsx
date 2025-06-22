@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 import styles from "./SliderViajesHome.module.css";
 
 const SliderViajesHome = () => {
@@ -44,12 +45,12 @@ const SliderViajesHome = () => {
       >
         {viajes.map((v) => (
           <SwiperSlide key={v.id}>
-            <div className={styles.card}>
+            <Link to="/viajes" className={styles.card}>
               <img src={v.imgPath} alt={v.title} />
               <h3>{v.title}</h3>
               <p>{v.description.length > 80 ? v.description.slice(0, 80) + "..." : v.description}</p>
               <span className={styles.tipo}>{v.tipo}</span>
-            </div>
+              </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -266,24 +266,40 @@ const Buscador = () => {
       {viajesFiltrados.length > 0 && (
         <div className={styles.lista}>
           <h2>Resultados encontrados</h2>
-          <div className={styles.grid}>
-            {viajesFiltrados.map((viaje) => (
-              <div key={viaje.id} className={styles.card}>
-                <img
-                  src={viaje.imgPath}
-                  alt={viaje.title}
-                  className={styles.imagen}
-                />
-                <h3>{viaje.title}</h3>
-                <p><strong>Destino:</strong> {viaje.ciudadDestino}, {viaje.paisDestino}</p>
-                <p><strong>Salida:</strong> {viaje.ciudadSalida} - {viaje.fechaDeIda}</p>
-              </div>
-            ))}
+    
+        <div className={styles.grid}>
+          {viajesFiltrados.map((viaje) => (
+            <div key={viaje.id} className={styles.card}>
+                <img src={viaje.imgPath} alt={viaje.title} className={styles.imagen} />
+
+            <div className={styles.cardBody}>
+                <h3 className={styles.cardTitle}>{viaje.title}</h3>
+                <p className={styles.descripcion}>{viaje.description}</p>
+
+            <div className={styles.detalle}>
+              <p><strong>Destino:</strong> {viaje.ciudadDestino}, {viaje.paisDestino}</p>
+              <p><strong>Salida:</strong> {viaje.ciudadSalida} – {viaje.fechaDeIda}</p>
+              <p><strong>Vuelta:</strong> {viaje.fechaDeVuelta ?? "No indicada"}</p>
+              <p><strong>Número de adultos:</strong> {viaje.numAdultos}</p>
+              <p><strong>Número de niños:</strong> {viaje.numNinos}</p>
+              <p><strong>Rango de edad:</strong> {viaje.rangosEdad?.join(", ") || "No especificado"}</p>
+              <p><strong>Presupuesto:</strong> {viaje.presupuesto ? `${viaje.presupuesto} €` : "No indicado"}</p>
+              <p><strong>Tipo de viaje:</strong> {viaje.tipoViaje || "No disponible"}</p>
+              <p><strong>Transporte:</strong> {viaje.transporte || "No disponible"}</p>
+              <p><strong>Grupo o privado:</strong> {viaje.grupoOPrivado ? "Grupo" : "Privado"}</p>
+              <p><strong>Accesibilidad movilidad reducida:</strong> {viaje.discapacidadMovilRed ? "Sí" : "No"}</p>
+              <p><strong>Organización:</strong> {viaje.organizadoOMedida ? "A medida" : "Organizado"}</p>
+              {viaje.descripcion && (
+                <p><strong>Descripción:</strong> {viaje.descripcion}</p>
+              )}
+            </div>
           </div>
+        </div>
+      ))}
+        </div>
         </div>
       )}
     </section>
   );
 };
-
 export default Buscador;

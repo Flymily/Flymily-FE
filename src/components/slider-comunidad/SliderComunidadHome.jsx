@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 import styles from "./SliderComunidadHome.module.css";
 
 const SliderComunidadHome = () => {
@@ -44,7 +45,7 @@ const SliderComunidadHome = () => {
       >
         {posts.map((post) => (
           <SwiperSlide key={post.id}>
-            <div className={styles.card}>
+            <Link to="/comunidad" className={styles.card}>
               <div className={styles.imagenWrapper}>
                 <img src={post.imgPathComunidad} alt={post.tituloPost} className={styles.imagen} />
               </div>
@@ -56,7 +57,7 @@ const SliderComunidadHome = () => {
                     : post.contenidoPost}
                 </p>
               </div>
-            </div>
+              </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -211,3 +211,66 @@
     border-color: #8ecaae;
     box-shadow: 0 0 0 3px rgba(142, 202, 174, 0.3);
   }
+  .lista {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  margin-top: 4rem;
+  padding-left: 2rem;
+}
+
+  
+  .grid {
+    width: 100%;
+    max-width: 600px;
+  }
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+  }
+  
+  .imagen {
+    width: 100%;
+    height: auto;
+  }
+  
+  .cardBody {
+    padding: 1.5rem;
+    flex:1;
+  }
+  
+  .cardTitle {
+    font-size: 1.4rem;
+    color: #5A8F68;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .descripcion {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+  
+  .detalle {
+    text-align: left;
+    font-size: 1.1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem 2rem;
+    color: #444;
+  }
+  
+  .detalle p {
+    margin: 0;
+  }
+  
+  .detalle strong {
+    color: #518258;
+    font-weight: 600;
+  }

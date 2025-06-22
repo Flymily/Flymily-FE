@@ -14,12 +14,14 @@ import QuienesSomos from './pages/quienesSomos/QuienesSomos';
 import PrivateRoute from './components/PrivateRoute'; 
 import RecomendacionesViaje from './components/recomendaciones-viaje/RecomendacionesViaje';
 import PreguntasFrecuentes from './pages/preguntasFrecuentes/PreguntasFrecuentes';
+import './index.css';
 
 function App() {
   return (
     <>
-     
+      <div className="appLayout">
       <Navbar />
+      <main className="mainContent">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/viajes" element={<Viajes />} />
@@ -34,7 +36,9 @@ function App() {
         <Route path="/recomendaciones" element={<RecomendacionesViaje />} />
         <Route path="/faq" element={<PreguntasFrecuentes />} />
       </Routes>
+      </main>
       <Footer />
+      </div>
     </>
   );
 }
