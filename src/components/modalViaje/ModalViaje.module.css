@@ -22,6 +22,22 @@
   position: relative;
   animation: fadeIn 0.3s ease-in-out;
 }
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 50px;
+  color: grey;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #000;
+}
 
 .imagen {
   width: 90%;

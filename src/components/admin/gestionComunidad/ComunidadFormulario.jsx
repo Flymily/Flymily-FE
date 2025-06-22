@@ -33,7 +33,7 @@ const ComunidadFormulario = ({ postEditando, onSuccess }) => {
       const postData = {
         tituloPost: data.tituloPost,
         contenidoPost: data.contenidoPost,
-        imgPathComunidad: data.imgPathComunidad || "", // si no hay imagen
+        imgPathComunidad: data.imgPathComunidad || "", 
       };
 
       if (postEditando) {

@@ -1,4 +1,3 @@
-// ⚠️ ya no usamos localStorage
 import axios from 'axios';
 
 export const api = axios.create({
@@ -6,11 +5,9 @@ export const api = axios.create({
   withCredentials: true
 });
 
-
-// 👉 Para endpoints que NO requieren cookies/sesión
 export const apiPublic = axios.create({
   baseURL: '/api',
-  withCredentials: false // 👈 importante
+  withCredentials: false 
 });
 
 export const apiProtected = axios.create({

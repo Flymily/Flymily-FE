@@ -15,6 +15,7 @@ import {
 import { getAllTiposViajePublicos } from "../../services/tipoViajeApi";
 import { filtroViajesApi } from "../../services/filtroViajesApi";
 
+
 const InputConIcono = React.forwardRef(({ value, onClick, placeholder }, ref) => (
   <div className={styles.inputGroup} onClick={onClick}>
     <FaCalendarAlt className={styles.iconInside} />

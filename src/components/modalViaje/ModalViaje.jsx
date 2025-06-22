@@ -1,4 +1,5 @@
 import styles from "./ModalViaje.module.css";
+import { FaTimes } from "react-icons/fa";
 
 const ModalViaje = ({ viaje, onClose }) => {
   if (!viaje) {
@@ -17,8 +18,8 @@ const ModalViaje = ({ viaje, onClose }) => {
   return (
     <div className={styles.overlay} data-testid="modal-viaje">
       <div className={styles.modal}>
-        <button aria-label="Cerrar" onClick={() => onClose()}>
-          <span className="icon">❌</span>
+        <button aria-label="Cerrar" onClick={onClose} className={styles.closeButton}>
+          <FaTimes />
         </button>
 
         <img src={viaje.imgPath} alt={viaje.title} className={styles.imagen} />

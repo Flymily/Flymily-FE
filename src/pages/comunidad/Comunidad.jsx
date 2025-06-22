@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './Comunidad.module.css';
 import { getContenidoComunidad } from '../../services/comunidad';
 
