@@ -1,0 +1,220 @@
+.buscadorContainer {
+    padding: 3rem 1rem;
+    background-color: #f8f1e9;
+    margin: 3rem auto;
+    border-radius: 1rem;
+  }
+  
+  .formulario {
+    background: transparent;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .titulo {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2c3e50;
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+  
+  .filaPrincipal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputGroup {
+    position: relative;
+    flex: 1 1 180px;
+    max-width: 250px;
+  }
+  
+  .iconInside {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+  }
+  
+  .inputWithIcon {
+    width: 100%;
+    padding: 0.6rem 0.6rem 0.6rem 2.2rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .personasEdad {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+  
+  .counter {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  
+  .counter label {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .counter button {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #99c7a5;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .counter button:hover {
+    background-color: #6fa180;
+  }
+  
+  .edadesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .edadesInput {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 3.5rem;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+  
+  .advancedToggle {
+    background: #bde1c4;
+    border: none;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .selectInput {
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 220px;
+    margin-bottom: 1rem;
+  }
+  
+  .botonBuscar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #48b187;
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: 'Montserrat Alternates', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .botonBuscar:hover {
+    background-color: #3b8b74;
+  }
+
+
+.selectBonito {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    font-family: 'Montserrat Alternates', sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    width: 100%;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .selectBonito:focus {
+    outline: none;
+    border-color: #8ecaae;
+    box-shadow: 0 0 0 3px rgba(142, 202, 174, 0.3);
+  }
+  .filtrosAvanzados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .filtrosAvanzados select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    font-family: 'Montserrat Alternates', sans-serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 250px;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .filtrosAvanzados select:focus {
+    outline: none;
+    border-color: #8ecaae;
+    box-shadow: 0 0 0 3px rgba(142, 202, 174, 0.3);
+  }
+  .buscadorPage {
+  display: flex;
+  flex-direction: column;
+
+}
+
